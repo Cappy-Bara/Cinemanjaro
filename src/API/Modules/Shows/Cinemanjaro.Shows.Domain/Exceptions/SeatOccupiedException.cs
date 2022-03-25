@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Cinemanjaro.Common.Exceptions;
+using Cinemanjaro.Shows.Domain.ValueObjects;
 
 namespace Cinemanjaro.Shows.Domain.Exceptions
 {
-    public class SeatOccupiedException
+    public class SeatOccupiedException : CinemanjaroException
     {
-        
+        public SeatOccupiedException(SeatPosition position) : base($"Seat in row {position.Row} with number {position.Number} is occupied", 400)
+        {
+        }
     }
 }

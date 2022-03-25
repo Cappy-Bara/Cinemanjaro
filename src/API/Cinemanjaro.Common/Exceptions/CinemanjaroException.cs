@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cinemanjaro.Common.Exceptions
 {
-    public class CinemanjaroException : Exception
+    public abstract class CinemanjaroException : Exception
     {
         public int StatusCode { get; set; }
 
