@@ -1,9 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Cinemanjaro.Shows.Application.Storages;
+using Cinemanjaro.Shows.Domain.Repositories;
+using Cinemanjaro.Shows.Infrastructure.Repositories;
+using Cinemanjaro.Shows.Infrastructure.Storages;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Cinemanjaro.Shows.Infrastructure
 {
@@ -11,6 +10,8 @@ namespace Cinemanjaro.Shows.Infrastructure
     {
         public static IServiceCollection AddInfrastructureLayer(this IServiceCollection services)
         {
+            services.AddScoped<IShowsRepository,ShowsRepository>();
+            services.AddScoped<IShowsStorage,ShowsStorage>();
 
             return services;
         }

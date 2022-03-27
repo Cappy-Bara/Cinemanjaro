@@ -1,4 +1,4 @@
-﻿using Cinemanjaro.Shows.Application.Storage;
+﻿using Cinemanjaro.Shows.Application.Storages;
 using Cinemanjaro.Shows.Domain.Aggregates;
 using MediatR;
 using System;

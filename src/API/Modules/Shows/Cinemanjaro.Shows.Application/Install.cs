@@ -1,9 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
+using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace Cinemanjaro.Shows.Application
 {
@@ -11,6 +8,7 @@ namespace Cinemanjaro.Shows.Application
     {
         public static IServiceCollection AddApplicationLayer(this IServiceCollection services)
         {
+            services.AddMediatR(typeof(Install).GetTypeInfo().Assembly);
 
             return services;
         }

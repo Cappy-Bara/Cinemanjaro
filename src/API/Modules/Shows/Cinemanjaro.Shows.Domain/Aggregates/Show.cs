@@ -1,17 +1,13 @@
 ﻿using Cinemanjaro.Shows.Domain.Entities;
 using Cinemanjaro.Shows.Domain.Exceptions;
 using Cinemanjaro.Shows.Domain.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MongoDB.Bson;
 
 namespace Cinemanjaro.Shows.Domain.Aggregates
 {
     public class Show
     {
-        public Guid ShowId { get; set; }
+        public ObjectId Id { get; set; }
         public string Title { get; set; }
         public DateTime Date { get; set; }
         public List<Seat> Seats { get; set; }

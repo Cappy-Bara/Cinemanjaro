@@ -26,19 +26,11 @@ namespace Cinemanjaro.Bootstrapper.Middleware
             {
                 _logger.LogWarning($"HANDLED EXCEPTION THROWN: CODE - {ex.StatusCode} - {ex.Message}");
                 await WriteExceptionAsync(context, ex.ToErrorDetails((HttpStatusCode)ex.StatusCode));
-
-            }
-            catch (InvalidOperationException ex)
-            {
-                _logger.LogInformation($"UNAUTHORIZED OPERATION: CODE - {HttpStatusCode.Unauthorized} - {ex.Message}");
-                await WriteExceptionAsync(context, ex.ToErrorDetails(HttpStatusCode.Unauthorized));
-
             }
             catch (Exception ex)
             {
                 _logger.LogError($"!UNHANDLED EXCEPTION THROWN: CODE - 500 - {ex.Message}");
                 await WriteExceptionAsync(context, ex.ToErrorDetails());
-
             }
         }
 

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cinemanjaro.Shows.Application.Storage
+namespace Cinemanjaro.Shows.Application.Storages
 {
     public interface IShowsStorage
     {

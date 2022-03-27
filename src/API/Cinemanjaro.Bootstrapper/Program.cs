@@ -1,9 +1,13 @@
 using Cinemanjaro.Bootstrapper.Middleware;
+using MediatR;
 using Cinemanjaro.Shows.API;
+using Cinemanjaro.Bootstrapper.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+
+builder.Services.AddMongoDb(builder.Configuration);
 
 builder.Services.AddShowsModule();
 

@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Cinemanjaro.Shows.Domain.Repositories;
+using MongoDB.Bson;
 
 namespace Cinemanjaro.Shows.Application.Shows.Queries
 {
-    public record GetShow(Guid ShowId) : IRequest<Show>;
+    public record GetShow(ObjectId ShowId) : IRequest<Show>;
 
     public class GetShowHandler : IRequestHandler<GetShow, Show>
     {

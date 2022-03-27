@@ -1,16 +1,17 @@
 ﻿using Cinemanjaro.Shows.Domain.Aggregates;
+using MongoDB.Bson;
 
 namespace Cinemanjaro.Shows.API.DTOs
 {
     public class ShowListElementDto
     {
-        public Guid ShowId { get; init; }
+        public ObjectId Id { get; init; }
         public DateTime Date { get; init; }
         public string Title { get; init; }
 
         public ShowListElementDto(Show show)
         {
-            ShowId = show.ShowId;
+            Id = show.Id;
             Date = show.Date;
             Title = show.Title; 
         }

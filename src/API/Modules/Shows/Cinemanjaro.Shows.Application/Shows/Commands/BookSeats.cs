@@ -2,6 +2,7 @@
 using Cinemanjaro.Shows.Domain.Repositories;
 using Cinemanjaro.Shows.Domain.ValueObjects;
 using MediatR;
+using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Cinemanjaro.Shows.Application.Shows.Commands
 {
-    public record BookSeats(IEnumerable<SeatPosition> seats,Guid showId) : IRequest<Unit>;
+    public record BookSeats(IEnumerable<SeatPosition> Seats,string Email,ObjectId ShowId) : IRequest<Unit>;
 
     public class BookSeatsHandler : IRequestHandler<BookSeats, Unit>
     {
@@ -23,12 +24,16 @@ namespace Cinemanjaro.Shows.Application.Shows.Commands
 
         public async Task<Unit> Handle(BookSeats request, CancellationToken cancellationToken)
         {
-            if(request.seats.Distinct().Count() != request.seats.Count())
+            if(request.Seats.Distinct().Count() != request.Seats.Count())
                throw new SeatReservedMultipleTimesException();
 
-            var show = await _showsRepo.Get(request.showId);
+            var show = await _showsRepo.Get(request.ShowId);
+            if (show is null)
+                throw new NotFoundException("This show does not exist.");
 
-            show.BookSeats(request.seats);
+            show.BookSeats(request.Seats);
+
+            await _showsRepo.Update(show);
 
             return Unit.Value;
         }
