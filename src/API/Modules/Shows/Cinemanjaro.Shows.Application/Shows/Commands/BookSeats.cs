@@ -27,14 +27,20 @@ namespace Cinemanjaro.Shows.Application.Shows.Commands
             if(request.Seats.Distinct().Count() != request.Seats.Count())
                throw new SeatReservedMultipleTimesException();
 
+            if (request.Seats.Count() == 0)
+                throw new SeatNotChosenException();
+
             var show = await _showsRepo.Get(request.ShowId);
             if (show is null)
                 throw new NotFoundException("This show does not exist.");
 
+            if(show.Date < DateTime.Now)
+                throw new ShowInPastException();
+
             show.BookSeats(request.Seats);
 
             await _showsRepo.Update(show);
-
+            
             return Unit.Value;
         }
     }

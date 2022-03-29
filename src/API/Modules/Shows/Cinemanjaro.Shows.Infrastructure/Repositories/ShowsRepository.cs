@@ -17,9 +17,8 @@ namespace Cinemanjaro.Shows.Infrastructure.Repositories
         public ShowsRepository(IMongoClient mongoClient)
         {
             _showsCollection = mongoClient.GetDatabase("cinemanjaro_shows")
-                                          .GetCollection<Show>("Shows");
+                                          .GetCollection<Show>("shows");
         }
-
 
         public async Task Delete(ObjectId showId)
         {

@@ -11,7 +11,10 @@ namespace Cinemanjaro.Shows.Infrastructure
         public static IServiceCollection AddInfrastructureLayer(this IServiceCollection services)
         {
             services.AddScoped<IShowsRepository,ShowsRepository>();
+            services.AddScoped<ITicketsRepository, TicketsRepository>();
+
             services.AddScoped<IShowsStorage,ShowsStorage>();
+            services.AddScoped<ITicketsStorage,TicketsStorage>();
 
             return services;
         }
