@@ -1,13 +1,10 @@
 ﻿using Cinemanjaro.Shows.Domain.Exceptions;
 using Cinemanjaro.Shows.Domain.Repositories;
 using Cinemanjaro.Shows.Domain.ValueObjects;
+using Cinemanjaro.Shows.Shared.DTOs;
+using Cinemanjaro.Shows.Shared.Events.Shows;
 using MediatR;
 using MongoDB.Bson;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cinemanjaro.Shows.Application.Shows.Commands
 {
@@ -16,11 +13,12 @@ namespace Cinemanjaro.Shows.Application.Shows.Commands
     public class BookSeatsHandler : IRequestHandler<BookSeats, Unit>
     {
         private readonly IShowsRepository _showsRepo;
-        public BookSeatsHandler(IShowsRepository showsRepo)
+        private readonly IMediator _mediator;
+        public BookSeatsHandler(IShowsRepository showsRepo, IMediator mediator)
         {
             _showsRepo = showsRepo;
+            _mediator = mediator;
         }
-
 
         public async Task<Unit> Handle(BookSeats request, CancellationToken cancellationToken)
         {
@@ -40,7 +38,18 @@ namespace Cinemanjaro.Shows.Application.Shows.Commands
             show.BookSeats(request.Seats);
 
             await _showsRepo.Update(show);
-            
+
+            var @event = new SeatsBooked()
+            {
+                Email = request.Email,
+                MovieTitle = show.Title,
+                ShowDate = show.Date,
+                ShowId = request.ShowId,
+                Seats = request.Seats.Select(x => new SeatDto(x.Row,x.Number))
+            };
+
+            await _mediator.Publish(@event);
+
             return Unit.Value;
         }
     }

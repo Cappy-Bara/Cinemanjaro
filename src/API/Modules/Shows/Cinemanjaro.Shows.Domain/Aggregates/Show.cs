@@ -10,7 +10,7 @@ namespace Cinemanjaro.Shows.Domain.Aggregates
         public ObjectId Id { get; set; }
         public string Title { get; set; }
         public DateTime Date { get; set; }
-        public List<Seat> Seats { get; set; }
+        public IEnumerable<Seat> Seats { get; set; }
 
         public void BookSeats(IEnumerable<SeatPosition> seatPositions)
         {

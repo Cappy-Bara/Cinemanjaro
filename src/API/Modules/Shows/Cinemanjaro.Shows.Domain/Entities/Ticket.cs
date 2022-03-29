@@ -12,15 +12,13 @@ namespace Cinemanjaro.Shows.Domain.Entities
     public class Ticket
     {
         public ObjectId Id { get; set; }
-        public ObjectId MovieId { get; set; }
+        public ObjectId ShowId { get; set; }
         public string MovieTitle { get; set; }
         public DateTime ShowDate { get; set; }
-        public string BuyerEmail { get; set; }
-        public string MailToSend { get; set; }
+        public string Email { get; set; }
         public DateTime ReservationTime { get; set; } = DateTime.Now;
         public bool Paid { get; set; }
         public IEnumerable<SeatPosition> Seats { get; set; }
-
 
         public void PayForTicket()
         {

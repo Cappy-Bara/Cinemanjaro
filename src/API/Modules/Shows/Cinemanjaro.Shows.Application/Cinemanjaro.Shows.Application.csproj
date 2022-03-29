@@ -17,4 +17,9 @@
     <ProjectReference Include="..\Cinemanjaro.Shows.Domain\Cinemanjaro.Shows.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Tickets\Commands\" />
+    <Folder Include="Tickets\Queries\" />
+  </ItemGroup>
+
 </Project>
