@@ -32,13 +32,13 @@ namespace Cinemanjaro.Shows.API.Controllers
             var shows = await _mediator.Send(query);
 
             if (shows.Any())
-                return Ok(shows);
+                return Ok(new ShowListDto(shows));
 
             return NoContent();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<IEnumerable<ShowListDto>>> GetShowDetails([FromRoute]string id)
+        public async Task<ActionResult<ShowDto>> GetShowDetails([FromRoute]string id)
         {
             var objectId = ObjectId.Parse(id);
             var query = new GetShow(objectId);
@@ -46,7 +46,7 @@ namespace Cinemanjaro.Shows.API.Controllers
             var show = await _mediator.Send(query);
 
             if (show != null)
-                return Ok(show);
+                return Ok(new ShowDto(show));
 
             return NoContent();
         }

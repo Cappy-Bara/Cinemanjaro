@@ -12,16 +12,15 @@ namespace Cinemanjaro.Shows.Infrastructure.Storages
         public ShowsStorage(IMongoClient mongoClient)
         {
             _showsCollection = mongoClient.GetDatabase("cinemanjaro_shows")
-                                          .GetCollection<Show>("Shows");
+                                          .GetCollection<Show>("shows");
         }
 
         public async Task<IEnumerable<Show>> GetShowsByDate(DateOnly day)
         {
             var timeBegin = new TimeOnly(00,00,00,00);
-            var timeEnd = new TimeOnly(23, 59, 59, 99);
 
             var dateBegin = day.ToDateTime(timeBegin);
-            var dateEnds = day.ToDateTime(timeEnd);
+            var dateEnds = day.ToDateTime(timeBegin).AddDays(1);
 
             var builder = Builders<Show>.Filter;
             
