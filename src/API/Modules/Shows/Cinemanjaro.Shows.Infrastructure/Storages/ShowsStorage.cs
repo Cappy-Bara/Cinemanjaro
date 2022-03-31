@@ -1,6 +1,8 @@
 ﻿using Cinemanjaro.Shows.Application.Storages;
 using Cinemanjaro.Shows.Domain.Aggregates;
+using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Driver.Core.Events;
 
 namespace Cinemanjaro.Shows.Infrastructure.Storages
 {
@@ -19,8 +21,8 @@ namespace Cinemanjaro.Shows.Infrastructure.Storages
         {
             var timeBegin = new TimeOnly(00,00,00,00);
 
-            var dateBegin = day.ToDateTime(timeBegin);
-            var dateEnds = day.ToDateTime(timeBegin).AddDays(1);
+            var dateBegin = day.ToDateTime(timeBegin).ToLocalTime();
+            var dateEnds = day.ToDateTime(timeBegin).AddDays(1).ToLocalTime();
 
             var builder = Builders<Show>.Filter;
             

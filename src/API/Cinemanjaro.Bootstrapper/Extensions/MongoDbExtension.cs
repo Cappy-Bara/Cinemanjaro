@@ -1,4 +1,6 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
+using MongoDB.Driver.Core.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +13,20 @@ namespace Cinemanjaro.Bootstrapper.Extensions
     {
         public static IServiceCollection AddMongoDb(this IServiceCollection services, IConfiguration config)
         {
+            var mongoConnectionUrl = new MongoUrl(config.GetConnectionString("MongoDb"));
+#if DEBUG
+            var mongoClientSettings = MongoClientSettings.FromUrl(mongoConnectionUrl);
+            mongoClientSettings.ClusterConfigurator = cb => {
+                cb.Subscribe<CommandStartedEvent>(e => {
+                    Console.WriteLine($"{e.CommandName} - {e.Command.ToJson()}");
+                });
+            };
+            var client = new MongoClient(mongoClientSettings);
+#else
+            var client = new MongoClient(mongoConnectionUrl);
+#endif
             services.AddScoped<IMongoClient, MongoClient>(serviceProvider =>
-                new MongoClient(config.GetConnectionString("MongoDb")));
-
+                client);
             return services;
         }
     }
