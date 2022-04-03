@@ -14,6 +14,8 @@ builder.Services.AddShowsModule();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCinemanjaroCors();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
