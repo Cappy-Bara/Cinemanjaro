@@ -12,7 +12,6 @@ namespace Cinemanjaro.Bootstrapper.Extensions
         {
 
 #if DEBUG
-            Console.WriteLine("All origins cors policy added.");
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowAllOrigins",
