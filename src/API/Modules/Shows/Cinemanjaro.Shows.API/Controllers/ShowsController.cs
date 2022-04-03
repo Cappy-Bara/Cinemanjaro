@@ -5,16 +5,12 @@ using Cinemanjaro.Shows.Domain.ValueObjects;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Cinemanjaro.Shows.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class ShowsController : ControllerBase
     {
         private readonly IMediator _mediator;
