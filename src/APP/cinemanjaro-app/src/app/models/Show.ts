@@ -1,19 +1,23 @@
 import { Seat, SeatPosition } from "./Seat";
 
 export interface Show{
-    Id : string,
-    Date : Date,
-    Title : string,
+    id : string,
+    date : Date,
+    title : string,
+}
+
+export interface ShowsResponse{
+    shows:Show[]
 }
 
 export interface ShowDetails{
-    Id : string,
-    Date : Date,
-    Title : string,
-    Seats : Seat[],
+    id : string,
+    date : Date,
+    title : string,
+    seats : Seat[],
 }
 
 export interface SeatsToBook{
-    Email : string,
-    SeatPositions: SeatPosition[],
+    email : string,
+    seatPositions: SeatPosition[],
 }

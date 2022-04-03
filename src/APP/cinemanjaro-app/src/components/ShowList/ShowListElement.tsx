@@ -7,6 +7,7 @@ interface props {
 
 const ShowListElement = ({ show }: props) => {
 
+  console.log(show)
   return (
           <Segment.Group>
           <Segment>
@@ -14,11 +15,11 @@ const ShowListElement = ({ show }: props) => {
           <Item>
             <Item.Image src='https://react.semantic-ui.com/images/wireframe/image.png' />
             <Item.Content>
-              <Item.Header as='a'>{show.Title}</Item.Header>
+              <Item.Header as='a'>{show.title}</Item.Header>
               <Item.Meta>
                 <span className='cinema'>1h 45min</span>
               </Item.Meta>
-              <Item.Description>{show.Date.toISOString()}</Item.Description>
+              <Item.Description>{show.date}</Item.Description>
               <Item.Extra>
                 <Button floated='right' primary>
                   Buy tickets

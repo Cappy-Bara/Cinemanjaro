@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { SeatsToBook, Show, ShowDetails } from "../models/Show";
+import { SeatsToBook, ShowDetails, ShowsResponse } from "../models/Show";
 
 axios.defaults.baseURL = 'http://localhost:5295/api';
 
@@ -12,21 +12,14 @@ const requests = {
     del: <T> (url: string) => axios.delete<T>(url).then(responseBody),
 }
 
-const Tests = {
-    testGet: () => requests.get<Show[]>(`/Test`),
-}
-
-
-
 const Shows = {
-    list: (date : string) => requests.get<Show[]>(`/Shows/date/${date}`),
+    list: (date : string) => requests.get<ShowsResponse>(`/Shows/date/${date}`),
     details: (id: string) => requests.get<ShowDetails>(`/Shows/${id}`),
     bookSeats: (activity: SeatsToBook) => requests.post<void>('/activities',activity)
 }
 
 const agent = {
-    Shows,
-    Tests
+    Shows
 }
 
 export default agent;
