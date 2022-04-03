@@ -1,3 +1,4 @@
+import dateformat from "dateformat";
 import { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import { Grid, Header } from "semantic-ui-react";
@@ -17,7 +18,7 @@ const ShowListDashboard = () => {
         , []);
 
     const fetchShows = (date: Date) => {
-        agent.Shows.list(date.toISOString())
+        agent.Shows.list(dateformat(date,'isoDate'))
             .then((shows) => {
                 setShows(shows.shows);
             }

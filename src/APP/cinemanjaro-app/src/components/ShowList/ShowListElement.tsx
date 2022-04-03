@@ -1,5 +1,6 @@
 import { Button, Item, ItemGroup, Label, Segment} from "semantic-ui-react";
 import { Show } from "../../app/models/Show";
+import dateFormat from 'dateformat'
 
 interface props {
   show: Show
@@ -7,7 +8,6 @@ interface props {
 
 const ShowListElement = ({ show }: props) => {
 
-  console.log(show)
   return (
           <Segment.Group>
           <Segment>
@@ -19,7 +19,7 @@ const ShowListElement = ({ show }: props) => {
               <Item.Meta>
                 <span className='cinema'>1h 45min</span>
               </Item.Meta>
-              <Item.Description>{show.date}</Item.Description>
+              <Item.Description>{dateFormat(show.date,"dd.mm.yyyy / H.MM",true)}</Item.Description>
               <Item.Extra>
                 <Button floated='right' primary>
                   Buy tickets
