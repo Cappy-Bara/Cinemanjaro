@@ -10,8 +10,8 @@ namespace Cinemanjaro.Bootstrapper.Extensions
     {
         public static IServiceCollection AddCinemanjaroCors(this IServiceCollection services)
         {
-
 #if DEBUG
+            Console.WriteLine("All origins policy added.");
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowAllOrigins",
@@ -22,7 +22,6 @@ namespace Cinemanjaro.Bootstrapper.Extensions
                     );
             });
 #endif
-
             return services;
         }
     }

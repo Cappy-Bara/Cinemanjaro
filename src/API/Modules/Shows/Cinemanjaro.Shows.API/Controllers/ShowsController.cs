@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace Cinemanjaro.Shows.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class ShowsController : ControllerBase
     {
         private readonly IMediator _mediator;

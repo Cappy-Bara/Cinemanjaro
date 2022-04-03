@@ -1,5 +1,4 @@
 using Cinemanjaro.Bootstrapper.Middleware;
-using MediatR;
 using Cinemanjaro.Shows.API;
 using Cinemanjaro.Bootstrapper.Extensions;
 
@@ -22,6 +21,8 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseCors("AllowAllOrigins");
+
 }
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();
