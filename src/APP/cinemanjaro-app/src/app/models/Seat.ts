@@ -1,12 +1,12 @@
 export interface Seat {
-    Row : Number,
-    Number : Number,
-    Status : SeatStatus,
+    row : Number,
+    number : Number,
+    status : SeatStatus,
 }
 
 export interface SeatPosition{
-    Row : Number,
-    Number : Number,
+    row : Number,
+    number : Number,
 }
 
 

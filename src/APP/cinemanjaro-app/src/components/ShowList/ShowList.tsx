@@ -10,7 +10,6 @@ const ShowList = ({ shows }: props) => {
 
     return (
         <>
-        {console.log(shows)}
             {
                 shows ?
                     (
