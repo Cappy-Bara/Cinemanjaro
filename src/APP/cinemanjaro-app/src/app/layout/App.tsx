@@ -8,17 +8,22 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div>
-      <NavBar />
-      <Container style={{ marginTop: '7em' }}>
-      <BrowserRouter>
-        <Routes>
-          <Route path={'/shows'} element={<ShowListDashboard />} />
-          <Route path={'/shows/:id'} element={<BookSeatsDashboard />} />
-        </Routes>
-      </BrowserRouter>
-      </Container>
-    </div>
+    <>
+      {/* <Route
+        path={`/(.+)`}
+        children={() => ( */}
+          <>
+            <NavBar />
+            <Container style={{ marginTop: '7em' }}>
+                <Routes>
+                  <Route path={'/shows'} element={<ShowListDashboard />} />
+                  <Route path={'/shows/:id'} element={<BookSeatsDashboard />} />
+                </Routes>
+            </Container>
+          </>
+        {/* )}
+      /> */}
+    </>
   );
 }
 
