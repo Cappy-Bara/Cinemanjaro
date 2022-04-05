@@ -3,26 +3,33 @@ import { Seat } from "../../app/models/Seat";
 import SeatListElement from "./SeatListElement";
 
 interface props {
-    seats : Seat[],
+    seats: Seat[],
+    setSeat: (seat: Seat) => void,
+    removeSeat: (seat: Seat) => void
 }
 
-const SeatList = ({seats}:props) => {
+const SeatList = ({ seats, setSeat, removeSeat }: props) => {
 
-    return(
+    return (
         <>
-                    {
+            {
                 seats ?
                     (
-                    seats.map(seat =>
-                        <SeatListElement key={seat.number.toString() + seat.row.toString()} seat={seat} />
-                    )
+                        seats.map(seat =>
+                            <SeatListElement
+                                key={seat.number.toString() + seat.row.toString()}
+                                seat={seat}
+                                setSeat={setSeat}
+                                removeSeat={removeSeat}
+                            />
+                        )
                     )
                     :
                     <Message
                         icon='ticket'
                         header="Unfortunately, we don't have any seats for this seanse."
                         content='Please select different seanse.'
-                  />
+                    />
             }
         </>
     )

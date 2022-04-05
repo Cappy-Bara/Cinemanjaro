@@ -1,6 +1,7 @@
 import { Button, Item, ItemGroup, Label, Segment } from "semantic-ui-react";
 import { Show } from "../../app/models/Show";
 import dateFormat from 'dateformat'
+import { Link } from "react-router-dom";
 
 interface props {
   show: Show
@@ -21,7 +22,12 @@ const ShowListElement = ({ show }: props) => {
               </Item.Meta>
               <Item.Description>{dateFormat(show.date, "dd.mm.yyyy / H.MM", true)}</Item.Description>
               <Item.Extra>
-                <Button floated='right' primary>
+                <Button
+                  as={Link}
+                  to={`/shows/${show.id}`}
+                  floated='right'
+                  primary
+                >
                   Buy tickets
                 </Button>
                 <Label>Comedy</Label>

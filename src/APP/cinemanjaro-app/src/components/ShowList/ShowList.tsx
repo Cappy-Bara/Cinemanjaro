@@ -14,7 +14,10 @@ const ShowList = ({ shows }: props) => {
                 shows ?
                     (
                     shows.map(show =>
-                        <ShowListElement key={show.id} show={show} />
+                        <ShowListElement 
+                            key={show.id} 
+                            show={show} 
+                        />
                     )
                     )
                     :
