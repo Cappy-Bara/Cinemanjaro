@@ -15,7 +15,7 @@ const requests = {
 const Shows = {
     list: (date : string) => requests.get<ShowsResponse>(`/Shows/date/${date}`),
     details: (id: string) => requests.get<ShowDetails>(`/Shows/${id}`),
-    bookSeats: (activity: SeatsToBook) => requests.post<void>('/activities',activity)
+    bookSeats: (id:string, seats: SeatsToBook,) => requests.post<void>(`/Shows/${id}`,{...seats})
 }
 
 const agent = {

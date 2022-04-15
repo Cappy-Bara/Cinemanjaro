@@ -1,35 +1,26 @@
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { Button, Grid, Header, List, Message } from "semantic-ui-react";
-import agent from "../../app/api/agent";
-import { Seat } from "../../app/models/Seat";
-import { ShowDetails } from "../../app/models/Show";
-import SeatsList from "./SeatsList";
-import './styles.css'
+import { Link } from "react-router-dom"
+import { Button, Grid, Header, Message } from "semantic-ui-react"
+import { Seat } from "../../../app/models/Seat"
+import { ShowDetails } from "../../../app/models/Show"
+import SeatsList from "../BookSeatsScreen/SeatsList"
+import SelectedSeats from "../BookSeatsScreen/SelectedSeats"
 
-const BookSeatsDashboard = () => {
+interface props {
+    setSeats : React.Dispatch<React.SetStateAction<Seat[]>>
+    chosenSeats: Seat[],
+    showDetails : ShowDetails,
+    setIsFirstStep : React.Dispatch<React.SetStateAction<Boolean>>
+}
 
-    const [showDetails, setShowDetails] = useState<ShowDetails>()
-    const [chosenSeats, setChosenSeats] = useState<Seat[]>([])
-
-    const { id } = useParams<{ id: string }>();
-
-    const fetchShowDetails = () => {
-        agent.Shows.details(id ?? "").then(fetchedShow =>
-            setShowDetails(fetchedShow))
-    }
-
-    useEffect(() => {
-        fetchShowDetails();
-    }, [])
+const BookSeatsFirstStep = ({setSeats,chosenSeats,showDetails,setIsFirstStep}:props) => {
 
     const addSeatToBooked = (seat: Seat) => {
-        setChosenSeats([...chosenSeats, seat]);
+        setSeats([...chosenSeats, seat]);
     }
-
+    
     const removeSeatFromBooked = (seat: Seat) => {
         let arr = chosenSeats.filter(x => x !== seat);
-        setChosenSeats(arr);
+        setSeats(arr);
     }
 
     return (
@@ -44,18 +35,12 @@ const BookSeatsDashboard = () => {
                 <Grid.Row />
                 <Grid.Column width='1' />
                 <Grid.Column width='10'>
-                    <SeatsList setSeat={addSeatToBooked} removeSeat={removeSeatFromBooked} seats={showDetails?.seats ?? []} />
+                    <SeatsList chosenSeats={chosenSeats} setSeat={addSeatToBooked} removeSeat={removeSeatFromBooked} seats={showDetails?.seats ?? []} />
                 </Grid.Column>
                 <Grid.Column width='5'>
                     <Header as='h2'>Selected seats:</Header>
                     {chosenSeats?.length > 0 ?
-                        <List bulleted>
-                            {
-                                chosenSeats.map(seat => {
-                                    return (<List.Item key={seat.number.toString() + seat.row.toString()}>Row {seat.row} - Number {seat.number}</List.Item>)
-                                })
-                            }
-                        </List>
+                        <SelectedSeats seats={chosenSeats} />
                         :
                         <Message
                             header="You haven't chosen any seat at this moment."
@@ -66,6 +51,7 @@ const BookSeatsDashboard = () => {
                     <Button
                         primary
                         floated='right'
+                        onClick={() => setIsFirstStep(false)}
                         disabled={chosenSeats?.length <= 0 ?? false}
                     >
                         Book seats
@@ -80,6 +66,7 @@ const BookSeatsDashboard = () => {
             </Grid>
         </>
     )
+
 }
 
-export default BookSeatsDashboard;
+export default BookSeatsFirstStep

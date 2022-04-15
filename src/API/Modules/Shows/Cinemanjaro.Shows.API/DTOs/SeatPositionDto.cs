@@ -12,6 +12,11 @@ namespace Cinemanjaro.Shows.API.DTOs
         public int Row { get; set; }
         public int Number { get; set; }
 
+        public SeatPositionDto()
+        {
+
+        }
+
         public SeatPositionDto(SeatPosition Position)
         {
             Row = Position.Row;

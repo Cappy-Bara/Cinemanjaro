@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.css'
 import ShowListDashboard from '../../components/ShowList/ShowListDashboard';
 import NavBar from './NavBar';
-import BookSeatsDashboard from '../../components/BookSeatsScreen/BookSeatsDashboard';
+import BookSeatsDashboard from '../../components/BookSeats/BookSeatsScreen/BookSeatsDashboard';
 import { Container } from 'semantic-ui-react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 

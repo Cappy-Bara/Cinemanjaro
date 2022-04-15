@@ -1,0 +1,1 @@
+wt new-tab -p "Windows PowerShell" -d ./src/APP/cinemanjaro-app ; new-tab -p "Windows PowerShell" -d ./src/API/Cinemanjaro.Bootstrapper

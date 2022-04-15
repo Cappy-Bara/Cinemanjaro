@@ -3,6 +3,6 @@
     public class BookSeatsDto
     {
         public string Email { get; set; }
-        public IEnumerable<SeatPositionDto> SeatPositions { get; set; }
+        public List<SeatPositionDto> SeatPositions { get; set; }
     }
 }
