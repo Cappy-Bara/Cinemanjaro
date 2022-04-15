@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Cinemanjaro.Common\Cinemanjaro.Common.csproj" />
+    <ProjectReference Include="..\Modules\Movies\Cinemanjaro.Movies.API\Cinemanjaro.Movies.API.csproj" />
     <ProjectReference Include="..\Modules\Shows\Cinemanjaro.Shows.API\Cinemanjaro.Shows.API.csproj" />
   </ItemGroup>
 
