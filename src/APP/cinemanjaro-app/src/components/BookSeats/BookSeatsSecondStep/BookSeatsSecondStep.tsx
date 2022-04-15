@@ -6,6 +6,7 @@ import { Seat } from "../../../app/models/Seat"
 import { SeatsToBook, ShowDetails } from "../../../app/models/Show"
 import { SeatPosition} from "../../../app/models/Seat"
 import SelectedSeats from "../BookSeatsScreen/SelectedSeats"
+import { useNavigate } from "react-router-dom"
 
 
 interface props {
@@ -16,18 +17,16 @@ interface props {
 
 const BookSeatsSecondStep = ({ showDetails, selectedSeats, setIsFirstStep }: props) => {
 
-    const [email, setEmail] = useState<string>("")
+    const [email, setEmail] = useState<string>("");
+    const navigate = useNavigate();
 
     const bookTickets = () => {
-
         const positions = selectedSeats.map(seat => ({row: seat.row,number: seat.number} as SeatPosition));
-
         const seats : SeatsToBook = {
             email: email,
             seatPositions: positions,
         };
-        console.log(seats);
-        agent.Shows.bookSeats(showDetails.id,seats)
+        agent.Shows.bookSeats(showDetails.id,seats).then(x => navigate("/success"))
     }
 
 
