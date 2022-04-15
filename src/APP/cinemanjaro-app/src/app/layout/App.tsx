@@ -6,6 +6,7 @@ import BookSeatsDashboard from '../../components/BookSeats/BookSeatsScreen/BookS
 import { Container } from 'semantic-ui-react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ThankYouPage from '../../components/BookSeats/ThankYouPage/ThankYouPage';
+import AboutUs from '../../components/BookSeats/AboutUs/AboutUs';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <NavBar />
       <Container style={{ marginTop: '7em' }}>
         <Routes>
+          <Route path={'/aboutus'} element={<AboutUs />} />
           <Route path={'/shows'} element={<ShowListDashboard />} />
           <Route path={'/shows/:id'} element={<BookSeatsDashboard />} />
           <Route path={'/success'} element={<ThankYouPage />} />
