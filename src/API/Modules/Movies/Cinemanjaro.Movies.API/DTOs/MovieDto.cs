@@ -17,6 +17,7 @@ namespace Cinemanjaro.Movies.API.DTOs
         public IEnumerable<string> Directors { get; set; }
         public IEnumerable<string> Actors { get; set; }
         public IEnumerable<string> Genres { get; set; }
+        public IEnumerable<string> Writers { get; set; }
         public int LengthMins { get; set; }
         public double Rate { get; set; }
         public int ReleaseYear { get; set; }
@@ -36,6 +37,7 @@ namespace Cinemanjaro.Movies.API.DTOs
             Directors = movie.Directors;
             Actors = movie.Actors;
             Genres = movie.Genres.Select(x => x.ToString());
+            Writers = movie.Writers;
             LengthMins = movie.LengthMins;
             Rate = movie.Rate;
             ReleaseYear = movie.ReleaseYear;
