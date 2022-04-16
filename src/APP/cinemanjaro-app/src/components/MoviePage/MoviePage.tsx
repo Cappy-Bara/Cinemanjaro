@@ -32,7 +32,7 @@ const MoviePage = () => {
                     <Divider />
                 </Grid.Column>
                 <Grid.Column width='8' >
-                    <Image src='https://fwcdn.pl/fph/94/76/469476/924841_1.3.jpg' size="big" />
+                    <Image src={movie?.photoURL} size="big" />
 
                         <Statistic>
                             <Statistic.Value>{movie?.rate}/10</Statistic.Value>

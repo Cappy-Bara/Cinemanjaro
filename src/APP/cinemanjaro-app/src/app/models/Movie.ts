@@ -10,6 +10,7 @@ export interface Movie {
     rate: 0,
     releaseYear: 0,
     imdbLink: string,
-    filmwebLink: string
+    filmwebLink: string,
+    photoURL: string,
 }
 
