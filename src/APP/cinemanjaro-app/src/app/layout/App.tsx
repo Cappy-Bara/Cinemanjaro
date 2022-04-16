@@ -6,7 +6,8 @@ import BookSeatsDashboard from '../../components/BookSeats/BookSeatsScreen/BookS
 import { Container } from 'semantic-ui-react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ThankYouPage from '../../components/BookSeats/ThankYouPage/ThankYouPage';
-import AboutUs from '../../components/BookSeats/AboutUs/AboutUs';
+import AboutUs from '../../components/AboutUs/AboutUs';
+import MoviePage from '../../components/MoviePage/MoviePage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Container style={{ marginTop: '7em' }}>
         <Routes>
           <Route path={'/aboutus'} element={<AboutUs />} />
+          <Route path={'/movies/:id'} element={<MoviePage />} />
           <Route path={'/shows'} element={<ShowListDashboard />} />
           <Route path={'/shows/:id'} element={<BookSeatsDashboard />} />
           <Route path={'/success'} element={<ThankYouPage />} />

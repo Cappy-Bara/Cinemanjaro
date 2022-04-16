@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from "axios";
+import { Movie } from "../models/Movie";
 import { SeatsToBook, ShowDetails, ShowsResponse } from "../models/Show";
 
 axios.defaults.baseURL = 'http://localhost:5295/api';
@@ -18,8 +19,13 @@ const Shows = {
     bookSeats: (id:string, seats: SeatsToBook,) => requests.post<void>(`/Shows/${id}`,{...seats})
 }
 
+const Movies = {
+    details: (id: string) => requests.get<Movie>(`Movies/${id}`),
+}
+
 const agent = {
-    Shows
+    Shows,
+    Movies
 }
 
 export default agent;

@@ -1,0 +1,8 @@
+.float-right{
+    float: right;
+}
+
+.sameline{
+    display: inline !important;
+    padding-left: 9vw;
+}
