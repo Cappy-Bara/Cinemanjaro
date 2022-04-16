@@ -83,10 +83,6 @@ const MoviePage = () => {
                         {((movie?.lengthMins ?? 0) / 60).toString()[0]}h <span></span>
                         {((movie?.lengthMins ?? 0) % 60)}min
                     </p>
-
-                </Grid.Column>
-                <Grid.Column width='5'>
-                    <Grid.Row></Grid.Row>
                 </Grid.Column>
             </Grid>
         </>
