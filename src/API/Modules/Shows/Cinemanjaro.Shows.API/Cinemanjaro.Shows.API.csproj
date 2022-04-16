@@ -19,6 +19,7 @@
     <ProjectReference Include="..\Cinemanjaro.Shows.Application\Cinemanjaro.Shows.Application.csproj" />
     <ProjectReference Include="..\Cinemanjaro.Shows.Domain\Cinemanjaro.Shows.Domain.csproj" />
     <ProjectReference Include="..\Cinemanjaro.Shows.Infrastructure\Cinemanjaro.Shows.Infrastructure.csproj" />
+    <ProjectReference Include="..\Cinemanjaro.Shows.Shared\Cinemanjaro.Shows.Shared.csproj" />
   </ItemGroup>
 
 </Project>

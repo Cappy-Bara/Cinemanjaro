@@ -22,5 +22,6 @@ namespace Cinemanjaro.Movies.Core.Entities
         public int ReleaseYear { get; set; }
         public string IMDBLink { get; set; }
         public string FilmwebLink { get; set; }
+        public string PhotoURL { get;set; }
     }
 }
