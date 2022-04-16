@@ -10,6 +10,10 @@ namespace Cinemanjaro.Shows.Domain.Aggregates
         public ObjectId Id { get; set; }
         public string Title { get; set; }
         public DateTime Date { get; set; }
+        public string IconURL { get; set; }
+        public ObjectId MovieId { get; set; }
+        public int LengthMins { get; set; }
+        public IEnumerable<Genre> Genres { get; set; }
         public IEnumerable<Seat> Seats { get; set; }
 
         public void BookSeats(IEnumerable<SeatPosition> seatPositions)

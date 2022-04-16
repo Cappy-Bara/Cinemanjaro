@@ -13,7 +13,11 @@ const BookSeatsDashboard = () => {
         id: "",
         date: new Date(),
         title: "",
-        seats: []
+        seats: [],
+        iconURL: "",
+        movieId: "",
+        lengthMins: 0,
+        genres: []
     }
 
     const [showDetails, setShowDetails] = useState<ShowDetails>(c)

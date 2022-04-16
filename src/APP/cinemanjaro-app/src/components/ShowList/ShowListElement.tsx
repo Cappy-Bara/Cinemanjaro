@@ -1,7 +1,7 @@
 import { Button, Item, ItemGroup, Label, Segment } from "semantic-ui-react";
 import { Show } from "../../app/models/Show";
 import dateFormat from 'dateformat'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface props {
   show: Show
@@ -9,16 +9,18 @@ interface props {
 
 const ShowListElement = ({ show }: props) => {
 
+  const navigate = useNavigate();
+
   return (
     <Segment.Group>
       <Segment>
         <Item.Group>
           <Item>
-            <Item.Image src='https://react.semantic-ui.com/images/wireframe/image.png' />
+            <Item.Image size="tiny" src={show.iconURL} />
             <Item.Content>
-              <Item.Header as='a'>{show.title}</Item.Header>
+              <Item.Header as='a' onClick={() => navigate(`/movies/${show.movieId}`)}>{show.title}</Item.Header>
               <Item.Meta>
-                <span className='cinema'>1h 45min</span>
+                <span className='cinema'>{((show.lengthMins ?? 0) / 60).toString()[0]}h {((show.lengthMins ?? 0) % 60)}min</span>
               </Item.Meta>
               <Item.Description>{dateFormat(show.date, "dd.mm.yyyy / H.MM", true)}</Item.Description>
               <Item.Extra>
@@ -30,9 +32,7 @@ const ShowListElement = ({ show }: props) => {
                 >
                   Buy tickets
                 </Button>
-                <Label>Comedy</Label>
-                <Label>Romantic</Label>
-                <Label>Drama</Label>
+                {show.genres.map(genre => <Label>{genre}</Label>)}
               </Item.Extra>
             </Item.Content>
           </Item>

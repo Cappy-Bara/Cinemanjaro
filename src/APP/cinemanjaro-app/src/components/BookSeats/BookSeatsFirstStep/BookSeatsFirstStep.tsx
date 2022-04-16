@@ -26,7 +26,6 @@ const BookSeatsFirstStep = ({setSeats,chosenSeats,showDetails,setIsFirstStep}:pr
     return (
         <>
             <Grid>
-                <Grid.Row />
                 <Grid.Column width='16'>
                     <Header as='h1' dividing textAlign="center">
                         Select seats

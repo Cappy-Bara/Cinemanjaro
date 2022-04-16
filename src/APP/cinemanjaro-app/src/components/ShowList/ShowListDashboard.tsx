@@ -40,7 +40,7 @@ const ShowListDashboard = () => {
                     <ShowList shows={shows} />
                 </Grid.Column>
                 <Grid.Column width='4'>
-                    <Calendar onClickDay={date => fetchShows(date)} />
+                    <Calendar minDate={new Date} onClickDay={date => fetchShows(date)} />
                 </Grid.Column>
             </Grid>
         </>

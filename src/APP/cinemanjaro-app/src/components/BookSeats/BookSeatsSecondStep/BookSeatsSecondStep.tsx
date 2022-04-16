@@ -1,6 +1,6 @@
 import dateFormat from "dateformat"
 import { useState } from "react"
-import { Grid, Header, Item, Image, Segment, Button, Input, Checkbox } from "semantic-ui-react"
+import { Grid, Header, Item, Image, Segment, Button, Input, Checkbox, Divider } from "semantic-ui-react"
 import agent from "../../../app/api/agent"
 import { Seat } from "../../../app/models/Seat"
 import { SeatsToBook, ShowDetails } from "../../../app/models/Show"
@@ -30,16 +30,12 @@ const BookSeatsSecondStep = ({ showDetails, selectedSeats, setIsFirstStep }: pro
     }
 
 
-
     return (
         <>
             <Grid>
                 <Grid.Column width='16'>
-                    <Header as='h1' textAlign="center">
+                    <Header as='h1' textAlign="center" dividing>
                         Buy tickets
-                    </Header>
-                    <Header as='h2' dividing textAlign="center">
-                        Enter required data to finish buying tickets
                     </Header>
                 </Grid.Column>
                 <Grid.Row>
@@ -49,15 +45,15 @@ const BookSeatsSecondStep = ({ showDetails, selectedSeats, setIsFirstStep }: pro
                             <Header as='h3' textAlign="center">Show</Header>
                             <Item.Group>
                                 <Item>
-                                    <Item.Image size='tiny' src='https://react.semantic-ui.com/images/wireframe/image.png' />
+                                    <Item.Image size='tiny' src={showDetails.iconURL} />
                                     <Item.Content>
-                                        <Item.Header as='a'>{showDetails.title}</Item.Header>
+                                        <Item.Header as='a' onClick={() => navigate(`/movies/${showDetails.movieId}`)}>{showDetails.title}</Item.Header>
                                         <Item.Meta>{dateFormat(showDetails.date, "dd.mm.yyyy", true)}</Item.Meta>
                                         <Item.Meta>{dateFormat(showDetails.date, "H.MM", true)}</Item.Meta>
                                     </Item.Content>
                                 </Item>
                             </Item.Group>
-
+                            <Divider />
                             <Header as='h3' textAlign="center">Seats</Header>
                             <SelectedSeats seats={selectedSeats} />
 
