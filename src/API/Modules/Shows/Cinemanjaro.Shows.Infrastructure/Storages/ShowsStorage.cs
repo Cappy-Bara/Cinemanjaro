@@ -1,8 +1,6 @@
 ﻿using Cinemanjaro.Shows.Application.Storages;
 using Cinemanjaro.Shows.Domain.Aggregates;
-using MongoDB.Bson;
 using MongoDB.Driver;
-using MongoDB.Driver.Core.Events;
 
 namespace Cinemanjaro.Shows.Infrastructure.Storages
 {

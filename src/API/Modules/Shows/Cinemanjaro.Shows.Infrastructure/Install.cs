@@ -15,6 +15,7 @@ namespace Cinemanjaro.Shows.Infrastructure
 
             services.AddScoped<IShowsStorage,ShowsStorage>();
             services.AddScoped<ITicketsStorage,TicketsStorage>();
+            services.AddScoped<IMoviesStorage,MoviesStorage>();
 
             return services;
         }
