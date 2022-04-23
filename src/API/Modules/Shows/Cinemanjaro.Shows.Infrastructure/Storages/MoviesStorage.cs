@@ -18,7 +18,7 @@ namespace Cinemanjaro.Shows.Infrastructure.Storages
         public async Task<IEnumerable<Movie>> GetMoviesOnScreen()
         {
             var filterBuilder = new FilterDefinitionBuilder<Show>();
-            var dateFilter = filterBuilder.Gte(x => x.Date, DateTime.Now);
+            var dateFilter = filterBuilder.Gte(x => x.Date, DateTime.Now.ToLocalTime());
 
             var output = _showsCollection.Aggregate()
                 .Match(dateFilter)
