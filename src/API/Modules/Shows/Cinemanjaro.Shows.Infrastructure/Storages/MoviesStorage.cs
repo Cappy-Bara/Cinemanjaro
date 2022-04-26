@@ -23,7 +23,7 @@ namespace Cinemanjaro.Shows.Infrastructure.Storages
             var output = _showsCollection.Aggregate()
                 .Match(dateFilter)
                 .Group(x => 
-                x.Id,
+                x.MovieId,
                 y => new Movie
                 {
                     MovieId = y.Key,
