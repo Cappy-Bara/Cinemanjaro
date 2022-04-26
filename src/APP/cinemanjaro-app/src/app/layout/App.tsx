@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ThankYouPage from '../../components/BookSeats/ThankYouPage/ThankYouPage';
 import AboutUs from '../../components/AboutUs/AboutUs';
 import MoviePage from '../../components/MoviePage/MoviePage';
+import OnScreenPage from '../../components/OnScreenPage/OnScreenPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path={'/shows'} element={<ShowListDashboard />} />
           <Route path={'/shows/:id'} element={<BookSeatsDashboard />} />
           <Route path={'/success'} element={<ThankYouPage />} />
+          <Route path={'/movies'} element={<OnScreenPage />} />
         </Routes>
       </Container>
     </>
