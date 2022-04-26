@@ -33,13 +33,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinemanjaro.Movies.Core", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tickets", "Tickets", "{364BA581-AB9E-4B1E-A4F3-DB346F636F97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinemanjaro.Tickets.API", "Modules\Tickets\Cinemanjaro.Tickets.API\Cinemanjaro.Tickets.API.csproj", "{FA22E40F-0E05-496C-8299-D6FC555DC2FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinemanjaro.Tickets.API", "Modules\Tickets\Cinemanjaro.Tickets.API\Cinemanjaro.Tickets.API.csproj", "{FA22E40F-0E05-496C-8299-D6FC555DC2FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinemanjaro.Tickets.Application", "Modules\Tickets\Cinemanjaro.Tickets.Application\Cinemanjaro.Tickets.Application.csproj", "{301DB5CB-71B2-4379-892B-F58CD1B94305}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinemanjaro.Tickets.Application", "Modules\Tickets\Cinemanjaro.Tickets.Application\Cinemanjaro.Tickets.Application.csproj", "{301DB5CB-71B2-4379-892B-F58CD1B94305}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinemanjaro.Tickets.Domain", "Modules\Tickets\Cinemanjaro.Tickets.Domain\Cinemanjaro.Tickets.Domain.csproj", "{EB7464C8-630C-43CA-A33D-850E44A24F78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinemanjaro.Tickets.Domain", "Modules\Tickets\Cinemanjaro.Tickets.Domain\Cinemanjaro.Tickets.Domain.csproj", "{EB7464C8-630C-43CA-A33D-850E44A24F78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinemanjaro.Tickets.Infrastructure", "Modules\Tickets\Cinemanjaro.Tickets.Infrastructure\Cinemanjaro.Tickets.Infrastructure.csproj", "{ED5B3128-9B5D-41A2-A602-F156CC0EF6CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinemanjaro.Tickets.Infrastructure", "Modules\Tickets\Cinemanjaro.Tickets.Infrastructure\Cinemanjaro.Tickets.Infrastructure.csproj", "{ED5B3128-9B5D-41A2-A602-F156CC0EF6CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Users", "Users", "{2A9F53E0-DA16-4E00-83BE-F624EE691202}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinemanjaro.Users.API", "Modules\Users\Cinemanjaro.Users.API\Cinemanjaro.Users.API.csproj", "{D62E6C18-2435-4935-BF75-8C43F90365C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinemanjaro.Users.Core", "Modules\Users\Cinemanjaro.Users.Core\Cinemanjaro.Users.Core.csproj", "{3C973305-9617-490E-A684-9EFE8136142D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -103,6 +109,14 @@ Global
 		{ED5B3128-9B5D-41A2-A602-F156CC0EF6CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED5B3128-9B5D-41A2-A602-F156CC0EF6CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED5B3128-9B5D-41A2-A602-F156CC0EF6CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D62E6C18-2435-4935-BF75-8C43F90365C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D62E6C18-2435-4935-BF75-8C43F90365C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D62E6C18-2435-4935-BF75-8C43F90365C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D62E6C18-2435-4935-BF75-8C43F90365C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C973305-9617-490E-A684-9EFE8136142D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C973305-9617-490E-A684-9EFE8136142D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C973305-9617-490E-A684-9EFE8136142D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C973305-9617-490E-A684-9EFE8136142D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -124,6 +138,9 @@ Global
 		{301DB5CB-71B2-4379-892B-F58CD1B94305} = {364BA581-AB9E-4B1E-A4F3-DB346F636F97}
 		{EB7464C8-630C-43CA-A33D-850E44A24F78} = {364BA581-AB9E-4B1E-A4F3-DB346F636F97}
 		{ED5B3128-9B5D-41A2-A602-F156CC0EF6CC} = {364BA581-AB9E-4B1E-A4F3-DB346F636F97}
+		{2A9F53E0-DA16-4E00-83BE-F624EE691202} = {0624227B-64D7-41C2-B540-CD78A3FDC845}
+		{D62E6C18-2435-4935-BF75-8C43F90365C6} = {2A9F53E0-DA16-4E00-83BE-F624EE691202}
+		{3C973305-9617-490E-A684-9EFE8136142D} = {2A9F53E0-DA16-4E00-83BE-F624EE691202}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {59689C49-EE41-4E5F-B4C3-DDDF9B49D884}
