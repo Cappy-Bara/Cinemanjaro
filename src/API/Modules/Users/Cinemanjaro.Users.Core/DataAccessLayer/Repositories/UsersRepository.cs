@@ -33,7 +33,7 @@ namespace Cinemanjaro.Users.Core.DataAccessLayer.Repositories
 
         public async Task<User> Get(string email)
         {
-            return await _usersCollection.Find(x => x.Email == email).FirstAsync();
+            return await _usersCollection.Find(x => x.Email == email).FirstOrDefaultAsync();
         }
 
         public async Task Update(User user)

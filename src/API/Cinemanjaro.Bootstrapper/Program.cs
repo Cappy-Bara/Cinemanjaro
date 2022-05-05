@@ -14,7 +14,7 @@ builder.Services.AddMongoDb(builder.Configuration);
 builder.Services.AddShowsModule();
 builder.Services.AddMoviesModule();
 builder.Services.AddTicketsModule();
-builder.Services.AddUsersModule();
+builder.Services.AddUsersModule(builder.Configuration);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -31,6 +31,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();
+
+app.UseAuthentication();
 
 app.UseHttpsRedirection();
 
