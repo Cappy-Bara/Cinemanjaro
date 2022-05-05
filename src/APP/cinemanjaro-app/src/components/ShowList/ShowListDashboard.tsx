@@ -31,7 +31,7 @@ const ShowListDashboard = () => {
                 <Grid.Row />
                 <Grid.Column width='16'>
                     <Header as='h1' dividing textAlign="center">
-                        Select show to book a ticket
+                        Select Show To Book a Ticket
                     </Header>
                 </Grid.Column>
                 <Grid.Row />

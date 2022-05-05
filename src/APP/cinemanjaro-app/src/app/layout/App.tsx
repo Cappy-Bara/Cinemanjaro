@@ -9,6 +9,7 @@ import ThankYouPage from '../../components/BookSeats/ThankYouPage/ThankYouPage';
 import AboutUs from '../../components/AboutUs/AboutUs';
 import MoviePage from '../../components/MoviePage/MoviePage';
 import OnScreenPage from '../../components/OnScreenPage/OnScreenPage';
+import HomePage from '../../components/HomePage/HomePage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <NavBar />
       <Container style={{ marginTop: '7em' }}>
         <Routes>
+          <Route path={'/'} element={<HomePage />} />
           <Route path={'/aboutus'} element={<AboutUs />} />
           <Route path={'/movies/:id'} element={<MoviePage />} />
           <Route path={'/shows'} element={<ShowListDashboard />} />

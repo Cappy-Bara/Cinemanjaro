@@ -28,7 +28,7 @@ const OnScreenPage = () => {
     <Grid>
         <Grid.Column width='16'>
             <Header as='h1' dividing textAlign="center">
-                Currently on screen
+                Currently On Screen
             </Header>
         </Grid.Column>
         <Grid.Row />

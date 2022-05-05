@@ -28,7 +28,7 @@ const BookSeatsFirstStep = ({setSeats,chosenSeats,showDetails,setIsFirstStep}:pr
             <Grid>
                 <Grid.Column width='16'>
                     <Header as='h1' dividing textAlign="center">
-                        Select seats
+                        Select Seats
                     </Header>
                 </Grid.Column>
                 <Grid.Row />
