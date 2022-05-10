@@ -16,12 +16,20 @@ namespace Cinemanjaro.Users.API.Controllers
             _usersService = usersService;
         }
 
-        [HttpPost]
+        [HttpPost("register")]
         public async Task<ActionResult> Register([FromBody] RegisterDto registerDto)
         {
             await _usersService.RegisterUser(registerDto.Email, registerDto.Password);
             
             return Ok();
+        }
+
+        [HttpPost("login")]
+        public async Task<ActionResult> Login([FromBody] LoginDto loginDto)
+        {
+            var token = await _usersService.Login(loginDto.Email, loginDto.Password);
+
+            return Ok(token);
         }
 
     }
