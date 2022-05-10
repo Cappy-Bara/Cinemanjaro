@@ -35,7 +35,7 @@ const BookSeatsSecondStep = ({ showDetails, selectedSeats, setIsFirstStep }: pro
             <Grid>
                 <Grid.Column width='16'>
                     <Header as='h1' textAlign="center" dividing>
-                        Buy tickets
+                        Buy Tickets
                     </Header>
                 </Grid.Column>
                 <Grid.Row>
