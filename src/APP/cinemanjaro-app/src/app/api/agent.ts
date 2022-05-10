@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { Movie } from "../models/Movie";
+import { Movie, MovieListElementData, MoviesResponse } from "../models/Movie";
 import { SeatsToBook, ShowDetails, ShowsResponse } from "../models/Show";
 
 axios.defaults.baseURL = 'http://localhost:5295/api';
@@ -20,7 +20,8 @@ const Shows = {
 }
 
 const Movies = {
-    details: (id: string) => requests.get<Movie>(`Movies/${id}`),
+    list: () => requests.get<MoviesResponse>(`Movies/on-screen`),
+    details: (id: string) => requests.get<Movie>(`Movies/${id}`)
 }
 
 const agent = {

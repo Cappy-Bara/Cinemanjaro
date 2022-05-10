@@ -6,7 +6,7 @@ const NavBar = () => {
         <Menu inverted fixed='top'>
             <Container>
                 <Menu.Item header as={Link} to="/">
-                    <Icon name="film"/>
+                    <Icon color="yellow" name="film"/>
                     Cinemanjaro
                 </Menu.Item>
                 <Menu.Item name='On screen' as={NavLink} to="/movies"/>
