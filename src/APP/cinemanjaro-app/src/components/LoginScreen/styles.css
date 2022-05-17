@@ -1,0 +1,8 @@
+.register{
+    color: #2185d0;
+}
+
+.register:hover{
+    color: #0E6EB8;
+    cursor:pointer;
+}

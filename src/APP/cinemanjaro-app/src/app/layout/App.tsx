@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styles.css'
 import ShowListDashboard from '../../components/ShowList/ShowListDashboard';
 import NavBar from './NavBar';
@@ -11,11 +11,15 @@ import MoviePage from '../../components/MoviePage/MoviePage';
 import OnScreenPage from '../../components/OnScreenPage/OnScreenPage';
 import HomePage from '../../components/HomePage/HomePage';
 import LoginScreen from '../../components/LoginScreen/LoginScreen';
+import RegisterScreen from '../../components/RegisterScreen/RegisterScreen';
+import ThankYouPageRegister from '../../components/RegisterScreen/ThankYouPageRegister';
 
 function App() {
+  const [loggedUser, setLoggedUser] = useState('');
+
   return (
     <>
-      <NavBar />
+      <NavBar loggedUser={loggedUser}/>
       <Container style={{ marginTop: '7em' }}>
         <Routes>
           <Route path={'/'} element={<HomePage />} />
@@ -25,7 +29,9 @@ function App() {
           <Route path={'/shows/:id'} element={<BookSeatsDashboard />} />
           <Route path={'/success'} element={<ThankYouPage />} />
           <Route path={'/movies'} element={<OnScreenPage />} />
-          <Route path={'/login'} element={<LoginScreen />} />
+          <Route path={'/login'} element={<LoginScreen setLoggedUser={setLoggedUser}/>} />
+          <Route path={'/register'} element={<RegisterScreen />} />
+          <Route path={'/register-succeeded'} element={<ThankYouPageRegister />} />
         </Routes>
       </Container>
     </>

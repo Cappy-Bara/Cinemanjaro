@@ -31,6 +31,5 @@ namespace Cinemanjaro.Users.API.Controllers
 
             return Ok(token);
         }
-
     }
 }

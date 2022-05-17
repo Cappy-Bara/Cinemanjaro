@@ -18,8 +18,4 @@
     <ProjectReference Include="..\Modules\Users\Cinemanjaro.Users.API\Cinemanjaro.Users.API.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Swagger\" />
-  </ItemGroup>
-
 </Project>

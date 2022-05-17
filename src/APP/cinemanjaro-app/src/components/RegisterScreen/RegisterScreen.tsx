@@ -3,23 +3,19 @@ import './styles.css';
 import { useNavigate } from "react-router-dom";
 import { Button, Container, Form, Grid, Header } from "semantic-ui-react";
 import agent from "../../app/api/agent";
-import { LoginData } from "../../app/models/Account";
-
-interface props {
-    setLoggedUser : React.Dispatch<React.SetStateAction<string>>
-}
+import { RegisterData } from "../../app/models/Account";
 
 
-const LoginScreen = ({setLoggedUser}:props) => {
+const LoginScreen = () => {
 
     const navigate = useNavigate();
 
-    const defaultValue: LoginData = {
+    const defaultValue: RegisterData = {
         email: "",
         password: ""
     };
 
-    const [formData, updateFormData] = useState<LoginData>(defaultValue);
+    const [formData, updateFormData] = useState<RegisterData>(defaultValue);
 
     const handleChange = (e: any) => {
         const fieldName = e.target.name;
@@ -31,20 +27,20 @@ const LoginScreen = ({setLoggedUser}:props) => {
     };
 
     const handleSubmit = () => {
-        agent.Account.login(formData).then(() => {
-            setLoggedUser(formData.email)
-            navigate("/");
+        console.log(formData);
+        agent.Account.register(formData).then(r => {
+            navigate("/register-succeeded");
         })
     };
 
-    const goToRegister = () => {
-        navigate("/register");
+    const goToLogin = () => {
+        navigate("/login");
     }
 
     return (
         <>
             <Header as='h1' dividing textAlign="center">
-                Login
+                Register
             </Header>
             <Grid>
                 <Grid.Row columns={3}>
@@ -56,7 +52,7 @@ const LoginScreen = ({setLoggedUser}:props) => {
                         }}>
                             <Form>
                                 <Header as='h3' textAlign="center">
-                                    Enter your login data
+                                    Enter your register data
                                 </Header>
                                 <Form.Field>
                                     <label>Email</label>
@@ -66,8 +62,8 @@ const LoginScreen = ({setLoggedUser}:props) => {
                                     <label>Password</label>
                                     <input type="password" name="password" placeholder='Password' onChange={handleChange} />
                                 </Form.Field>
-                                <Button primary floated="right" onClick={handleSubmit}>Login</Button>
-                                <span>Don't have an account yet? </span><span className="register" onClick={goToRegister}>Register now!</span>
+                                <Button primary floated="right" onClick={handleSubmit}>Register</Button>
+                                <span>Already have an account? </span><span className="register" onClick={goToLogin}>Log in!</span>
                             </Form>
                         </Container>
                     </Grid.Column>
