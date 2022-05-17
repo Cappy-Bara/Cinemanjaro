@@ -1,5 +1,7 @@
 import axios, { AxiosResponse } from "axios";
-import { Movie, MovieListElementData, MoviesResponse } from "../models/Movie";
+import { LoginData, RegisterData, Token } from "../models/Account";
+import { Movie, MoviesResponse } from "../models/Movie";
+import { UserTickets } from "../models/Ticket";
 import { SeatsToBook, ShowDetails, ShowsResponse } from "../models/Show";
 
 axios.defaults.baseURL = 'http://localhost:5295/api';
@@ -24,9 +26,21 @@ const Movies = {
     details: (id: string) => requests.get<Movie>(`Movies/${id}`)
 }
 
+const Tickets = {
+    AllUserTickets: () => requests.get<UserTickets>(`Tickets`),
+}
+
+const Account = {
+    login: (data: LoginData) => requests.post<Token>(`Users/login`,data),
+    register: (data: RegisterData) => requests.post(`Users/register`,data)
+}
+
+
 const agent = {
     Shows,
-    Movies
+    Movies,
+    Tickets,
+    Account
 }
 
 export default agent;

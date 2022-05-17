@@ -10,6 +10,7 @@ import AboutUs from '../../components/AboutUs/AboutUs';
 import MoviePage from '../../components/MoviePage/MoviePage';
 import OnScreenPage from '../../components/OnScreenPage/OnScreenPage';
 import HomePage from '../../components/HomePage/HomePage';
+import LoginScreen from '../../components/LoginScreen/LoginScreen';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path={'/shows/:id'} element={<BookSeatsDashboard />} />
           <Route path={'/success'} element={<ThankYouPage />} />
           <Route path={'/movies'} element={<OnScreenPage />} />
+          <Route path={'/login'} element={<LoginScreen />} />
         </Routes>
       </Container>
     </>
