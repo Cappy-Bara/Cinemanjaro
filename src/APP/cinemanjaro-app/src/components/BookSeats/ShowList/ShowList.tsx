@@ -1,4 +1,4 @@
-import { Show } from "../../app/models/Show"
+import { Show } from "../../../app/models/Show"
 import {Message} from "semantic-ui-react"
 import ShowListElement from "./ShowListElement";
 

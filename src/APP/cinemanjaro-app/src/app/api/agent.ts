@@ -1,8 +1,22 @@
 import axios, { AxiosResponse } from "axios";
-import { Movie, MovieListElementData, MoviesResponse } from "../models/Movie";
+import { LoginData, RegisterData, Token } from "../models/Account";
+import { Movie, MoviesResponse } from "../models/Movie";
+import { UserTickets } from "../models/Ticket";
 import { SeatsToBook, ShowDetails, ShowsResponse } from "../models/Show";
 
 axios.defaults.baseURL = 'http://localhost:5295/api';
+
+const handleLogout = () => {
+    if(axios.defaults.headers){
+        axios.defaults.headers.common = {'Authorization': `Bearer EMPTY`};
+    }
+}
+
+const handleLogin = (token : string) => {
+    if(axios.defaults.headers){
+        axios.defaults.headers.common = {'Authorization': `Bearer ${token}`};
+    };
+}
 
 const responseBody = <T> (response : AxiosResponse<T>) => response.data;
 
@@ -24,9 +38,23 @@ const Movies = {
     details: (id: string) => requests.get<Movie>(`Movies/${id}`)
 }
 
+const Tickets = {
+    AllUserTickets: () => requests.get<UserTickets>(`Tickets`),
+}
+
+const Account = {
+    login: (data: LoginData) => requests.post<Token>(`Users/login`,data)
+        .then(response => handleLogin(response.toString())),
+    register: (data: RegisterData) => requests.post(`Users/register`,data),
+    logout: () => handleLogout()
+}
+
+
 const agent = {
     Shows,
-    Movies
+    Movies,
+    Tickets,
+    Account
 }
 
 export default agent;

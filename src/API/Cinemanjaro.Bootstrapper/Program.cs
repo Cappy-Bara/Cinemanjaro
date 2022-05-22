@@ -4,10 +4,15 @@ using Cinemanjaro.Bootstrapper.Extensions;
 using Cinemanjaro.Movies.API;
 using Cinemanjaro.Tickets.API;
 using Cinemanjaro.Users.API;
+using Cinemanjaro.Common.DataProviders;
+using Cinemanjaro.Bootstrapper.Swagger;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<IUserDataProvider,UserDataProvider>();
 
 builder.Services.AddMongoDb(builder.Configuration);
 
@@ -17,7 +22,10 @@ builder.Services.AddTicketsModule();
 builder.Services.AddUsersModule(builder.Configuration);
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(gen =>
+{
+    gen.AddAuthorizationFieldInSwagger();
+});
 
 builder.Services.AddCinemanjaroCors();
 

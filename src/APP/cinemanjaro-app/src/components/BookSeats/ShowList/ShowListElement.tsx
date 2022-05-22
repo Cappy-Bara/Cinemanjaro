@@ -1,5 +1,5 @@
 import { Button, Item, ItemGroup, Label, Segment } from "semantic-ui-react";
-import { Show } from "../../app/models/Show";
+import { Show } from "../../../app/models/Show";
 import dateFormat from 'dateformat'
 import { Link, useNavigate } from "react-router-dom";
 

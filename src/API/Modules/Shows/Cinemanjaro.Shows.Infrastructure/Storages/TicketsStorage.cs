@@ -22,7 +22,7 @@ namespace Cinemanjaro.Shows.Infrastructure.Storages
 
         public async Task<IEnumerable<Ticket>> GetAllUserTickets(string email)
         {
-            var filter = new BsonDocument("BuyerEmail", email);
+            var filter = new BsonDocument("Email", email);
             return await _ticketsCollection.Find(filter).ToListAsync();
         }
     }
