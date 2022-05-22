@@ -6,15 +6,16 @@ import { SeatsToBook, ShowDetails, ShowsResponse } from "../models/Show";
 
 axios.defaults.baseURL = 'http://localhost:5295/api';
 
-const initializeToken = (token: string) => {
+const handleLogout = () => {
     if(axios.defaults.headers){
-        axios.defaults.headers.common = {'Authorization': `Bearer ${token}`};
+        axios.defaults.headers.common = {'Authorization': `Bearer EMPTY`};
     }
 }
 
 const handleLogin = (token : string) => {
-    console.log(token);
-    initializeToken(token);
+    if(axios.defaults.headers){
+        axios.defaults.headers.common = {'Authorization': `Bearer ${token}`};
+    };
 }
 
 const responseBody = <T> (response : AxiosResponse<T>) => response.data;
@@ -44,7 +45,8 @@ const Tickets = {
 const Account = {
     login: (data: LoginData) => requests.post<Token>(`Users/login`,data)
         .then(response => handleLogin(response.toString())),
-    register: (data: RegisterData) => requests.post(`Users/register`,data)
+    register: (data: RegisterData) => requests.post(`Users/register`,data),
+    logout: () => handleLogout()
 }
 
 

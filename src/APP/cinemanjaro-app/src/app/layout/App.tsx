@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './styles.css'
-import ShowListDashboard from '../../components/ShowList/ShowListDashboard';
+import ShowListDashboard from '../../components/BookSeats/ShowList/ShowListDashboard';
 import NavBar from './NavBar';
 import BookSeatsDashboard from '../../components/BookSeats/BookSeatsScreen/BookSeatsDashboard';
 import { Container } from 'semantic-ui-react';
@@ -13,13 +13,14 @@ import HomePage from '../../components/HomePage/HomePage';
 import LoginScreen from '../../components/LoginScreen/LoginScreen';
 import RegisterScreen from '../../components/RegisterScreen/RegisterScreen';
 import ThankYouPageRegister from '../../components/RegisterScreen/ThankYouPageRegister';
+import UserTicketsScreen from '../../components/UserTickets/UserTicketsScreen';
 
 function App() {
   const [loggedUser, setLoggedUser] = useState('');
 
   return (
     <>
-      <NavBar loggedUser={loggedUser}/>
+      <NavBar loggedUser={loggedUser} setLoggedUser={setLoggedUser}/>
       <Container style={{ marginTop: '7em' }}>
         <Routes>
           <Route path={'/'} element={<HomePage />} />
@@ -32,6 +33,7 @@ function App() {
           <Route path={'/login'} element={<LoginScreen setLoggedUser={setLoggedUser}/>} />
           <Route path={'/register'} element={<RegisterScreen />} />
           <Route path={'/register-succeeded'} element={<ThankYouPageRegister />} />
+          <Route path={'/tickets'} element={<UserTicketsScreen />} />
         </Routes>
       </Container>
     </>

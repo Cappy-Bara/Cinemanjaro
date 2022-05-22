@@ -1,11 +1,22 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Container, Dropdown, Icon, Menu } from "semantic-ui-react";
+import agent from "../api/agent";
 
 interface props {
-    loggedUser: string
+    loggedUser: string,
+    setLoggedUser:React.Dispatch<React.SetStateAction<string>>
 }
 
-const NavBar = ({ loggedUser }: props) => {
+const NavBar = ({ loggedUser, setLoggedUser }: props) => {
+    
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        setLoggedUser('');
+        agent.Account.logout();
+        navigate("/");
+    }
+    
     return (
         <Menu inverted fixed='top'>
             <Container>
@@ -22,8 +33,8 @@ const NavBar = ({ loggedUser }: props) => {
                             {
                                 loggedUser ?
                                     <>
-                                        <Dropdown.Item text='My tickets' icon='write' as={NavLink} to="/tickets" />
-                                        <Dropdown.Item text='Logout' icon='lock open' as={NavLink} to="/" />
+                                        <Dropdown.Item text='My tickets' icon='ticket' as={NavLink} to="/tickets" />
+                                        <Dropdown.Item text='Logout' icon='log out' onClick={handleLogout} />
                                     </>
                                     :
                                     <>

@@ -2,8 +2,8 @@ import dateformat from "dateformat";
 import { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import { Grid, Header } from "semantic-ui-react";
-import agent from "../../app/api/agent";
-import { Show } from "../../app/models/Show";
+import agent from "../../../app/api/agent";
+import { Show } from "../../../app/models/Show";
 import ShowList from "./ShowList";
 
 

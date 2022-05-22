@@ -1,9 +1,13 @@
 import { SeatPosition } from "./Seat";
 
-export interface UserTickets {
+export interface UserTicket {
     id: string,
     showId: string,
     movieTitle: string,
     showDate: Date,
-    seats: SeatPosition
+    seats: SeatPosition[]
+}
+
+export interface UserTickets{
+    tickets: UserTicket[]
 }
