@@ -27,7 +27,7 @@ function App() {
           <Route path={'/aboutus'} element={<AboutUs />} />
           <Route path={'/movies/:id'} element={<MoviePage />} />
           <Route path={'/shows'} element={<ShowListDashboard />} />
-          <Route path={'/shows/:id'} element={<BookSeatsDashboard />} />
+          <Route path={'/shows/:id'} element={<BookSeatsDashboard userEmail={loggedUser}/>} />
           <Route path={'/success'} element={<ThankYouPage />} />
           <Route path={'/movies'} element={<OnScreenPage />} />
           <Route path={'/login'} element={<LoginScreen setLoggedUser={setLoggedUser}/>} />

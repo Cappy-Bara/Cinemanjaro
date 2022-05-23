@@ -50,19 +50,19 @@ const LoginScreen = () => {
                         <Container style={{
                             marginTop: '4em'
                         }}>
-                            <Form>
+                            <Form onSubmit={handleSubmit}>
                                 <Header as='h3' textAlign="center">
                                     Enter your register data
                                 </Header>
                                 <Form.Field>
                                     <label>Email</label>
-                                    <input inputMode="email" name="email" placeholder='Email' onChange={handleChange} />
+                                    <input inputMode="email" name="email" placeholder='Email' type='email' onChange={handleChange} />
                                 </Form.Field>
                                 <Form.Field>
                                     <label>Password</label>
                                     <input type="password" name="password" placeholder='Password' onChange={handleChange} />
                                 </Form.Field>
-                                <Button primary floated="right" onClick={handleSubmit}>Register</Button>
+                                <Button primary floated="right" type="submit">Register</Button>
                                 <span>Already have an account? </span><span className="register" onClick={goToLogin}>Log in!</span>
                             </Form>
                         </Container>

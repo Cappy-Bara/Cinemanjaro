@@ -7,7 +7,11 @@ import BookSeatsFirstStep from "../BookSeatsFirstStep/BookSeatsFirstStep";
 import BookSeatsSecondStep from "../BookSeatsSecondStep/BookSeatsSecondStep";
 import './styles.css'
 
-const BookSeatsDashboard = () => {
+interface props{
+    userEmail:string;
+}
+
+const BookSeatsDashboard = ({userEmail} : props) => {
 
     let c : ShowDetails = {
         id: "",
@@ -43,6 +47,7 @@ const BookSeatsDashboard = () => {
                 <BookSeatsFirstStep setIsFirstStep={setIsFirstStep} setSeats={setChosenSeats} chosenSeats={chosenSeats} showDetails={showDetails}/>            
             :
                 <BookSeatsSecondStep 
+                    userEmail={userEmail}
                     showDetails={showDetails} 
                     selectedSeats={chosenSeats}
                     setIsFirstStep={setIsFirstStep}

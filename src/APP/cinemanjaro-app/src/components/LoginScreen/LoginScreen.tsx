@@ -6,11 +6,11 @@ import agent from "../../app/api/agent";
 import { LoginData } from "../../app/models/Account";
 
 interface props {
-    setLoggedUser : React.Dispatch<React.SetStateAction<string>>
+    setLoggedUser: React.Dispatch<React.SetStateAction<string>>
 }
 
 
-const LoginScreen = ({setLoggedUser}:props) => {
+const LoginScreen = ({ setLoggedUser }: props) => {
 
     const navigate = useNavigate();
 
@@ -54,19 +54,25 @@ const LoginScreen = ({setLoggedUser}:props) => {
                         <Container style={{
                             marginTop: '4em'
                         }}>
-                            <Form>
+                            <Form onSubmit={handleSubmit}>
                                 <Header as='h3' textAlign="center">
                                     Enter your login data
                                 </Header>
                                 <Form.Field>
                                     <label>Email</label>
-                                    <input inputMode="email" name="email" placeholder='Email' onChange={handleChange} />
+                                    <input
+                                        inputMode="email"
+                                        name="email"
+                                        placeholder='Email'
+                                        onChange={handleChange}
+                                        type='email'
+                                    />
                                 </Form.Field>
                                 <Form.Field>
                                     <label>Password</label>
                                     <input type="password" name="password" placeholder='Password' onChange={handleChange} />
                                 </Form.Field>
-                                <Button primary floated="right" onClick={handleSubmit}>Login</Button>
+                                <Button primary floated="right" type="submit">Login</Button>
                                 <span>Don't have an account yet? </span><span className="register" onClick={goToRegister}>Register now!</span>
                             </Form>
                         </Container>
