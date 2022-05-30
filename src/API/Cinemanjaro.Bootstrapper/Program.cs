@@ -6,6 +6,7 @@ using Cinemanjaro.Tickets.API;
 using Cinemanjaro.Users.API;
 using Cinemanjaro.Common.DataProviders;
 using Cinemanjaro.Bootstrapper.Swagger;
+using Cinemanjaro.Common.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,8 @@ builder.Services.AddControllers();
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IUserDataProvider,UserDataProvider>();
+
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 
 builder.Services.AddMongoDb(builder.Configuration);
 
