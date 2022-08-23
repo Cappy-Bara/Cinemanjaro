@@ -1,13 +1,8 @@
-﻿using Cinemanjaro.Shows.Domain.Entities;
-using Cinemanjaro.Shows.Domain.Repositories;
-using Cinemanjaro.Shows.Domain.ValueObjects;
-using Cinemanjaro.Shows.Shared.Events.Shows;
+﻿using Cinemanjaro.Shows.Shared.Events.Shows;
+using Cinemanjaro.Tickets.Domain.Entities;
+using Cinemanjaro.Tickets.Domain.Repositories;
+using Cinemanjaro.Tickets.Domain.ValueObjects;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cinemanjaro.Shows.Application.EventHandlers.Shows
 {

@@ -1,28 +1,41 @@
-﻿using Cinemanjaro.Shows.Domain.Entities;
-using Cinemanjaro.Shows.Domain.Repositories;
+﻿using Cinemanjaro.Tickets.Domain.Entities;
+using Cinemanjaro.Tickets.Domain.Repositories;
+using MongoDB.Bson;
+using MongoDB.Driver;
 
 namespace Cinemanjaro.Tickets.Infrastructure.Repositories
 {
     public class TicketsRepository : ITicketsRepository
     {
-        public Task Create(Ticket ticket)
+        private readonly IMongoCollection<Ticket> _ticketsCollection;
+
+        public TicketsRepository(IMongoClient mongoClient)
         {
-            throw new NotImplementedException();
+            _ticketsCollection = mongoClient.GetDatabase("cinemanjaro_shows")
+                                          .GetCollection<Ticket>("tickets");
         }
 
-        public Task Delete(global::MongoDB.Bson.ObjectId Id)
+        public async Task Create(Ticket ticket)
         {
-            throw new NotImplementedException();
+            await _ticketsCollection.InsertOneAsync(ticket);
         }
 
-        public Task<Ticket> Get(global::MongoDB.Bson.ObjectId Id)
+        public async Task Delete(ObjectId Id)
         {
-            throw new NotImplementedException();
+            var filter = new BsonDocument("_id", Id);
+            await _ticketsCollection.DeleteOneAsync(filter);
         }
 
-        public Task Update(Ticket ticket)
+        public async Task<Ticket> Get(ObjectId Id)
         {
-            throw new NotImplementedException();
+            var filter = new BsonDocument("_id", Id);
+            return await _ticketsCollection.Find(filter).FirstOrDefaultAsync();
+        }
+
+        public async Task Update(Ticket ticket)
+        {
+            var filter = new BsonDocument("_id", ticket.Id);
+            await _ticketsCollection.ReplaceOneAsync(filter, ticket);
         }
     }
 }

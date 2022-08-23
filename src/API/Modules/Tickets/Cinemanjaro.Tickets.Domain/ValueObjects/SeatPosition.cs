@@ -4,10 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cinemanjaro.Tickets.Application.EventHandlers
+namespace Cinemanjaro.Tickets.Domain.ValueObjects
 {
-    public class TicketCreted
-    {
-        
-    }
+    public record SeatPosition(int Row, int Number);
 }

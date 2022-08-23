@@ -1,12 +1,7 @@
-﻿using Cinemanjaro.Shows.Domain.Entities;
+﻿using Cinemanjaro.Tickets.Domain.Entities;
 using MongoDB.Bson;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Cinemanjaro.Shows.Domain.Repositories
+namespace Cinemanjaro.Tickets.Domain.Repositories
 {
     public interface ITicketsRepository
     {

@@ -1,8 +1,8 @@
-﻿using Cinemanjaro.Shows.Application.Storages;
-using Cinemanjaro.Shows.Domain.Entities;
+﻿using Cinemanjaro.Tickets.Application.Storages;
+using Cinemanjaro.Tickets.Domain.Entities;
 using MediatR;
 
-namespace Cinemanjaro.Shows.Application.Tickets.Queries
+namespace Cinemanjaro.Tickets.Application.Tickets.Queries
 {
     public record GetAllUserTickets(string userEmail) : IRequest<IEnumerable<Ticket>>;
 

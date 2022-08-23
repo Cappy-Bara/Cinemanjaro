@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
   </ItemGroup>
 
@@ -15,6 +16,10 @@
     <ProjectReference Include="..\Cinemanjaro.Tickets.Application\Cinemanjaro.Tickets.Application.csproj" />
     <ProjectReference Include="..\Cinemanjaro.Tickets.Domain\Cinemanjaro.Tickets.Domain.csproj" />
     <ProjectReference Include="..\Cinemanjaro.Tickets.Infrastructure\Cinemanjaro.Tickets.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Tickets\Commands\" />
   </ItemGroup>
 
 </Project>

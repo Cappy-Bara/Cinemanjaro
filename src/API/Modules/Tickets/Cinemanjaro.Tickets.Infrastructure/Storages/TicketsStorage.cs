@@ -1,14 +1,9 @@
-﻿using Cinemanjaro.Shows.Application.Storages;
-using Cinemanjaro.Shows.Domain.Entities;
+﻿using Cinemanjaro.Tickets.Application.Storages;
+using Cinemanjaro.Tickets.Domain.Entities;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Cinemanjaro.Shows.Infrastructure.Storages
+namespace Cinemanjaro.Tickets.Infrastructure.Storages
 {
     public class TicketsStorage : ITicketsStorage
     {

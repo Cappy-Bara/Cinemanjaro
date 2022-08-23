@@ -28,6 +28,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(gen =>
 {
     gen.AddAuthorizationFieldInSwagger();
+    gen.CustomSchemaIds(opt => opt.FullName);
 });
 
 builder.Services.AddCinemanjaroCors();

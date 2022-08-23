@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Shows\Cinemanjaro.Shows.Shared\Cinemanjaro.Shows.Shared.csproj" />
     <ProjectReference Include="..\Cinemanjaro.Tickets.Domain\Cinemanjaro.Tickets.Domain.csproj" />
   </ItemGroup>
 
