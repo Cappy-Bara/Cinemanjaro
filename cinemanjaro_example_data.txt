@@ -201,3 +201,7 @@
     MovieId: '6259aaa9a553fadc6b929ec8'
   }
   ]
+  
+  
+  
+  docker run -d -p 2717:27017 --name some-mongo -e MONGO_INITDB_ROOT_USERNAME=cinemanjaro -e MONGO_INITDB_ROOT_PASSWORD=passwd23467 mongo

@@ -11,7 +11,7 @@ namespace Cinemanjaro.Tickets.Infrastructure.Storages
 
         public TicketsStorage(IMongoClient mongoClient)
         {
-            _ticketsCollection = mongoClient.GetDatabase("cinemanjaro_shows")
+            _ticketsCollection = mongoClient.GetDatabase("cinemanjaro_tickets")
                                           .GetCollection<Ticket>("tickets");
         }
 
