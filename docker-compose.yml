@@ -1,0 +1,29 @@
+services:
+  api_service:
+    build:
+      context: ./src/API
+      dockerfile: ./Cinemanjaro.Bootstrapper/Dockerfile
+    container_name: cinemanjaro_api
+    ports: 
+      - "49154:80"
+      - "49153:443"
+    environment:
+     ASPNETCORE_ENVIRONMENT: "Development"
+     ASPNETCORE_URLS: "http://+:80"
+     ConnectionStrings:MongoDb: mongodb://cinemanjaro:passwd23467@db:27017/
+  db:
+    image: mongo
+    ports:
+      - "2717:27017"
+    container_name: "cinemanjaro_db"
+    environment:
+     MONGO_INITDB_ROOT_USERNAME: cinemanjaro
+     MONGO_INITDB_ROOT_PASSWORD: passwd23467
+  app:
+    build: 
+      context: ./src/APP/cinemanjaro-app
+      args:
+        API_URL: http://localhost:49154/api
+    container_name: cinemanjaro_app
+    ports:
+     - "8080:80"

@@ -4,7 +4,7 @@ import { Movie, MoviesResponse } from "../models/Movie";
 import { UserTickets } from "../models/Ticket";
 import { SeatsToBook, ShowDetails, ShowsResponse } from "../models/Show";
 
-axios.defaults.baseURL = 'http://localhost:5295/api';
+axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
 
 const handleLogout = () => {
     if(axios.defaults.headers){
