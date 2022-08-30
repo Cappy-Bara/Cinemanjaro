@@ -15,6 +15,13 @@ namespace Cinemanjaro.Tickets.Infrastructure.Storages
                                           .GetCollection<Ticket>("tickets");
         }
 
+        public async Task<IEnumerable<Ticket>> GetAllNotBoughtTicketsFromSelectedTime(int periodInMinutes)
+        {
+            var time = DateTime.Now.AddMinutes(-periodInMinutes);
+
+            return await _ticketsCollection.Find(x => x.Paid == false && x.ReservationTime < time).ToListAsync();
+        }
+
         public async Task<IEnumerable<Ticket>> GetAllUserTickets(string email)
         {
             var filter = new BsonDocument("Email", email);

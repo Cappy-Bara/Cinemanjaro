@@ -1,6 +1,8 @@
 ﻿using Cinemanjaro.Shows.Application.Storages;
 using Cinemanjaro.Shows.Domain.Aggregates;
+using MongoDB.Bson;
 using MongoDB.Driver;
+using System.Linq;
 
 namespace Cinemanjaro.Shows.Infrastructure.Storages
 {
@@ -13,6 +15,11 @@ namespace Cinemanjaro.Shows.Infrastructure.Storages
         {
             _showsCollection = mongoClient.GetDatabase("cinemanjaro_shows")
                                           .GetCollection<Show>("shows");
+        }
+
+        public async Task<IEnumerable<Show>> GetShows(IEnumerable<ObjectId> showIds)
+        {
+            return await _showsCollection.Find(x => showIds.Contains(x.Id)).ToListAsync();
         }
 
         public async Task<IEnumerable<Show>> GetShowsByDate(DateOnly day)

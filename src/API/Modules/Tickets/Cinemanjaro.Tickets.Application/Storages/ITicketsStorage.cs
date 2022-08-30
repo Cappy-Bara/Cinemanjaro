@@ -10,5 +10,6 @@ namespace Cinemanjaro.Tickets.Application.Storages
     public interface ITicketsStorage
     {
         public Task<IEnumerable<Ticket>> GetAllUserTickets(string email);
+        public Task<IEnumerable<Ticket>> GetAllNotBoughtTicketsFromSelectedTime(int periodInMinutes);
     }
 }

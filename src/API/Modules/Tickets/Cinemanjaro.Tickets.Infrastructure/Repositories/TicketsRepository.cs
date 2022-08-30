@@ -25,6 +25,10 @@ namespace Cinemanjaro.Tickets.Infrastructure.Repositories
             var filter = new BsonDocument("_id", Id);
             await _ticketsCollection.DeleteOneAsync(filter);
         }
+        public async Task DeleteMany(IEnumerable<ObjectId> Id)
+        {
+            await _ticketsCollection.DeleteManyAsync(x => Id.Contains(x.Id));
+        }
 
         public async Task<Ticket> Get(ObjectId Id)
         {
