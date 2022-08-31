@@ -9,6 +9,7 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["Cinemanjaro.Bootstrapper/Cinemanjaro.Bootstrapper.csproj", "Cinemanjaro.Bootstrapper/"]
 COPY ["Cinemanjaro.Common/Cinemanjaro.Common.csproj", "Cinemanjaro.Common/"]
+COPY ["Cinemanjaro.Jobs/Cinemanjaro.Jobs.csproj", "Cinemanjaro.Jobs/"]
 COPY ["Modules/Movies/Cinemanjaro.Movies.API/Cinemanjaro.Movies.API.csproj", "Modules/Movies/Cinemanjaro.Movies.API/"]
 COPY ["Modules/Movies/Cinemanjaro.Movies.Core/Cinemanjaro.Movies.Core.csproj", "Modules/Movies/Cinemanjaro.Movies.Core/"]
 COPY ["Modules/Shows/Cinemanjaro.Shows.API/Cinemanjaro.Shows.API.csproj", "Modules/Shows/Cinemanjaro.Shows.API/"]
