@@ -24,7 +24,7 @@ namespace Cinemanjaro.Shows.Application.EventHandlers.Shows
                 ShowId = notification.ShowId,
                 MovieTitle = notification.MovieTitle,
                 Paid = false,
-                ReservationTime = DateTime.Now,
+                ReservationTime = DateTime.Now.ToUniversalTime(),
                 ShowDate = notification.ShowDate,
             };
 

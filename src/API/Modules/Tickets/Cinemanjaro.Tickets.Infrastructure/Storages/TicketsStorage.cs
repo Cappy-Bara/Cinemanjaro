@@ -17,7 +17,7 @@ namespace Cinemanjaro.Tickets.Infrastructure.Storages
 
         public async Task<IEnumerable<Ticket>> GetAllNotBoughtTicketsFromSelectedTime(int periodInMinutes)
         {
-            var time = DateTime.Now.AddMinutes(-periodInMinutes);
+            var time = DateTime.Now.ToUniversalTime().AddMinutes(-periodInMinutes);
 
             return await _ticketsCollection.Find(x => x.Paid == false && x.ReservationTime < time).ToListAsync();
         }

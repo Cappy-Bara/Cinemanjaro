@@ -27,7 +27,7 @@ namespace Cinemanjaro.Tickets.Application.Jobs
             if (!tickets.Any())
                 return;
 
-            await ticketsRepository.DeleteMany(tickets.Select(x => x.ShowId));
+            await ticketsRepository.DeleteMany(tickets.Select(x => x.Id));
 
             var notification = new ObsoleteTicketsRemoved()
             {

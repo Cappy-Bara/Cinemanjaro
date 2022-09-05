@@ -3,6 +3,7 @@ using Cinemanjaro.Shows.Domain.Repositories;
 using Cinemanjaro.Shows.Domain.ValueObjects;
 using Cinemanjaro.Tickets.Shared.Events;
 using MediatR;
+using System.Runtime.CompilerServices;
 
 namespace Cinemanjaro.Shows.Application.EventHandlers.Shows
 {
@@ -19,6 +20,8 @@ namespace Cinemanjaro.Shows.Application.EventHandlers.Shows
 
         public async Task Handle(ObsoleteTicketsRemoved notification, CancellationToken cancellationToken)
         {
+            Console.WriteLine("SEATS FREEING IN PROGRESS...");
+
             var shows = await showsStorage.GetShows(notification.ShowsWithFreedSeats.Select(x => x.ShowId));
 
             foreach (var showWithFreedSeats in notification.ShowsWithFreedSeats)
@@ -30,6 +33,8 @@ namespace Cinemanjaro.Shows.Application.EventHandlers.Shows
                 
                 await showsRepository.Update(show);
             }
+
+            Console.WriteLine("SEATS HAS BEEN FREED");
         }
     }
 }

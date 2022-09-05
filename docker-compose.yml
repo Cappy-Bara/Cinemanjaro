@@ -1,5 +1,5 @@
 services:
-  api_service:
+  api:
     build:
       context: ./src/API
       dockerfile: ./Cinemanjaro.Bootstrapper/Dockerfile
@@ -23,7 +23,7 @@ services:
     build: 
       context: ./src/APP/cinemanjaro-app
       args:
-        API_URL: http://localhost:49154/api
+        API_URL: "http://localhost:49154/api"
     container_name: cinemanjaro_app
     ports:
      - "8080:80"

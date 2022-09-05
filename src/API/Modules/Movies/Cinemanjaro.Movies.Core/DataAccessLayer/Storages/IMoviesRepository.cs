@@ -11,5 +11,7 @@ namespace Cinemanjaro.Movies.Core.DataAccessLayer.Storages
     public interface IMoviesRepository
     {
         public Task<Movie> Get(ObjectId Id);
+
+        public Task InsertMany(IEnumerable<Movie> movies);
     }
 }

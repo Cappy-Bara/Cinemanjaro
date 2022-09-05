@@ -16,7 +16,7 @@ namespace Cinemanjaro.Tickets.Domain.Entities
         public string MovieTitle { get; set; }
         public DateTime ShowDate { get; set; }
         public string Email { get; set; }
-        public DateTime ReservationTime { get; set; } = DateTime.Now;
+        public DateTime ReservationTime { get; set; } = DateTime.Now.ToUniversalTime();
         public bool Paid { get; set; }
         public IEnumerable<SeatPosition> Seats { get; set; }
 

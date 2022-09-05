@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Cinemanjaro.Jobs\Cinemanjaro.Jobs.csproj" />
     <ProjectReference Include="..\..\Tickets\Cinemanjaro.Tickets.Shared\Cinemanjaro.Tickets.Shared.csproj" />
     <ProjectReference Include="..\Cinemanjaro.Shows.Domain\Cinemanjaro.Shows.Domain.csproj" />
     <ProjectReference Include="..\Cinemanjaro.Shows.Shared\Cinemanjaro.Shows.Shared.csproj" />

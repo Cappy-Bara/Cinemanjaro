@@ -26,8 +26,8 @@ namespace Cinemanjaro.Shows.Infrastructure.Storages
         {
             var timeBegin = new TimeOnly(00,00,00,00);
 
-            var dateBegin = day.ToDateTime(timeBegin).ToLocalTime();
-            var dateEnds = day.ToDateTime(timeBegin).AddDays(1).ToLocalTime();
+            var dateBegin = day.ToDateTime(timeBegin).ToUniversalTime();
+            var dateEnds = day.ToDateTime(timeBegin).AddDays(1).ToUniversalTime();
 
             var builder = Builders<Show>.Filter;
             

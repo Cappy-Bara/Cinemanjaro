@@ -14,5 +14,6 @@ namespace Cinemanjaro.Shows.Domain.Repositories
         public Task Delete(ObjectId showId);
         public Task Update(Show show);
         public Task Create(Show show);
+        public Task CreateMany(IEnumerable<Show> shows);
     }
 }

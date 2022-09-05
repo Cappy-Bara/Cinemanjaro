@@ -68,7 +68,7 @@ namespace Cinemanjaro.Users.Core.Services
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_settings.JwtKey));
             var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            var expires = DateTime.Now.AddDays(_settings.JwtExpireDays);
+            var expires = DateTime.Now.ToLocalTime().AddDays(_settings.JwtExpireDays);
 
             return new JwtSecurityToken(_settings.JwtIssuer, _settings.JwtIssuer, claims, expires: expires, signingCredentials: cred);
         }

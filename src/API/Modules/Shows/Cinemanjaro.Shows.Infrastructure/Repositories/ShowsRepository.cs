@@ -37,5 +37,10 @@ namespace Cinemanjaro.Shows.Infrastructure.Repositories
             var filter = new BsonDocument("_id", show.Id);
             await _showsCollection.ReplaceOneAsync(filter,show);
         }
+
+        public async Task CreateMany(IEnumerable<Show> shows)
+        {
+            await _showsCollection.InsertManyAsync(shows);
+        }
     }
 }

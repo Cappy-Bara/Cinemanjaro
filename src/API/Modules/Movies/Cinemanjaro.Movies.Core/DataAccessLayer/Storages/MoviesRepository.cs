@@ -23,5 +23,10 @@ namespace Cinemanjaro.Movies.Core.DataAccessLayer.Storages
         {
             return await _moviesCollection.Find(x => x.Id == Id).FirstOrDefaultAsync();
         }
+
+        public async Task InsertMany(IEnumerable<Movie> movies)
+        {
+            await _moviesCollection.InsertManyAsync(movies);
+        }
     }
 }

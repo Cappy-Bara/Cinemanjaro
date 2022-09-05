@@ -32,7 +32,7 @@ namespace Cinemanjaro.Shows.Application.Shows.Commands
             if (show is null)
                 throw new NotFoundException("This show does not exist.");
 
-            if(show.Date < DateTime.Now)
+            if(show.Date < DateTime.Now.ToUniversalTime())
                 throw new ShowInPastException();
 
             show.BookSeats(request.Seats);

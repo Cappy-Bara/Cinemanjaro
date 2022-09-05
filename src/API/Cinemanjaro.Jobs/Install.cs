@@ -1,4 +1,5 @@
-﻿using Cinemanjaro.Jobs.Jobs.Tickets;
+﻿using Cinemanjaro.Jobs.Jobs.Seeders;
+using Cinemanjaro.Jobs.Jobs.Tickets;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +16,7 @@ namespace Cinemanjaro.Jobs
                 q.UseMicrosoftDependencyInjectionJobFactory();
 
                 q.AddRemoveNotBoughtTicketsJob();
+                q.AddSeedingJob();
             });
 
             services.AddQuartzHostedService();

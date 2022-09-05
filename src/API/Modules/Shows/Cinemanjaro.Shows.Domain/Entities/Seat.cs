@@ -11,7 +11,7 @@ namespace Cinemanjaro.Shows.Domain.Entities
     public class Seat
     {
         public SeatPosition Position { get; set; }
-        public SeatStatus Status { get; set; }
+        public SeatStatus Status { get; set; } = SeatStatus.Free;
 
         private Seat()
         {
