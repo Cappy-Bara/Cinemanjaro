@@ -5,6 +5,7 @@ using Cinemanjaro.Shows.Domain.ValueObjects;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Cinemanjaro.Shows.API.Controllers
 {
@@ -20,6 +21,7 @@ namespace Cinemanjaro.Shows.API.Controllers
         }
 
         [HttpGet("date/{date}")]
+        [SwaggerOperation("Returns shows which are played at selected date")]
         public async Task<ActionResult<IEnumerable<ShowListDto>>> GetShowsOfDate([FromRoute]DateTime date)
         {
             var query = new GetShowsOfDate(DateOnly.FromDateTime(date));
@@ -33,6 +35,7 @@ namespace Cinemanjaro.Shows.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [SwaggerOperation("Returns details about selected show")]
         public async Task<ActionResult<ShowDto>> GetShowDetails([FromRoute]string id)
         {
             var objectId = ObjectId.Parse(id);
@@ -47,6 +50,7 @@ namespace Cinemanjaro.Shows.API.Controllers
         }
 
         [HttpPost("{id}")]
+        [SwaggerOperation("Books seats for selected show")]
         public async Task<ActionResult<IEnumerable<ShowListDto>>> BookSeat([FromRoute] string id,[FromBody]BookSeatsDto dto)
         {
             var objectId = ObjectId.Parse(id);

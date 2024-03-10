@@ -1,11 +1,8 @@
 ﻿using Cinemanjaro.Shows.API.DTOs;
 using Cinemanjaro.Shows.Application.Movies.Queries;
-using Cinemanjaro.Shows.Application.Shows.Commands;
-using Cinemanjaro.Shows.Application.Shows.Queries;
-using Cinemanjaro.Shows.Domain.ValueObjects;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using MongoDB.Bson;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Cinemanjaro.Shows.API.Controllers
 {
@@ -21,6 +18,7 @@ namespace Cinemanjaro.Shows.API.Controllers
         }
 
         [HttpGet("on-screen")]
+        [SwaggerOperation("Returns movies which are currently available to watch")]
         public async Task<ActionResult<MovieListDto>> GetMoviesOnScreen()
         {
             var query = new GetMoviesOnScreen();

@@ -1,7 +1,7 @@
 ﻿using Cinemanjaro.Users.API.DTOs;
 using Cinemanjaro.Users.Core.Services;
 using Microsoft.AspNetCore.Mvc;
-using MongoDB.Bson;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Cinemanjaro.Users.API.Controllers
 {
@@ -17,6 +17,7 @@ namespace Cinemanjaro.Users.API.Controllers
         }
 
         [HttpPost("register")]
+        [SwaggerOperation("Creates account for user")]
         public async Task<ActionResult> Register([FromBody] RegisterDto registerDto)
         {
             await _usersService.RegisterUser(registerDto.Email, registerDto.Password);
@@ -25,6 +26,7 @@ namespace Cinemanjaro.Users.API.Controllers
         }
 
         [HttpPost("login")]
+        [SwaggerOperation("Returns bearer token for user")]
         public async Task<ActionResult> Login([FromBody] LoginDto loginDto)
         {
             var token = await _usersService.Login(loginDto.Email, loginDto.Password);

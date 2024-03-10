@@ -4,6 +4,7 @@ using Cinemanjaro.Tickets.Application.Tickets.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Cinemanjaro.Tickets.API.Controllers
 {
@@ -22,6 +23,7 @@ namespace Cinemanjaro.Tickets.API.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation("Returns tickets booked by user.")]
         public async Task<ActionResult<TicketsDto>> GetUserTickets()
         {
             var command = new GetAllUserTickets(_dataProvider.UserEmail());

@@ -30,6 +30,7 @@ builder.Services.AddJobs(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(gen =>
 {
+    gen.EnableAnnotations();
     gen.AddAuthorizationFieldInSwagger();
     gen.CustomSchemaIds(opt => opt.FullName);
 });

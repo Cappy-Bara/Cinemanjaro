@@ -2,6 +2,7 @@
 using Cinemanjaro.Movies.Core.Services;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Cinemanjaro.Movies.API.Controllers
 {
@@ -16,6 +17,7 @@ namespace Cinemanjaro.Movies.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [SwaggerOperation("Returns information about selected movie")]
         public async Task<ActionResult<MovieDto>> Get([FromRoute] string id)
         {
             var objectId = ObjectId.Parse(id);
