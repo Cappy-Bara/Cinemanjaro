@@ -19,8 +19,4 @@
     <ProjectReference Include="..\Cinemanjaro.Tickets.Infrastructure\Cinemanjaro.Tickets.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Tickets\Commands\" />
-  </ItemGroup>
-
 </Project>

@@ -7,7 +7,6 @@ using Cinemanjaro.Users.API;
 using Cinemanjaro.Common.DataProviders;
 using Cinemanjaro.Bootstrapper.Swagger;
 using Cinemanjaro.Common.Settings;
-using Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure;
 using Cinemanjaro.Jobs;
 
 var builder = WebApplication.CreateBuilder(args);

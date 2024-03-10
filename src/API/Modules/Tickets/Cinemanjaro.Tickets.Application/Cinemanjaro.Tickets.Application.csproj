@@ -21,4 +21,8 @@
     <ProjectReference Include="..\Cinemanjaro.Tickets.Shared\Cinemanjaro.Tickets.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Tickets\Commands\" />
+  </ItemGroup>
+
 </Project>
