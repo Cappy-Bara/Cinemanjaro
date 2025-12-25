@@ -2,7 +2,7 @@
 #EXTRACT IN seeders/data/*
 
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import udf, col, year, concat, lit, from_json, monotonically_increasing_id, expr, regexp_replace
+from pyspark.sql.functions import udf, col, year, concat, lit, expr
 from pyspark.sql.types import ArrayType, StructType, StructField, StringType, IntegerType
 import ast
 
@@ -120,8 +120,6 @@ parse_genres_udf = udf(parse_genres, ArrayType(StringType()))
 movies_out = df.select(
 
     col("id"),  # ← KEEPED FOR JOINING
-    # _id (string placeholder, MongoDB ObjectId later)
-    monotonically_increasing_id().cast("string").alias("_id"),
 
     # Title
     col("title").alias("Title"),
@@ -144,9 +142,6 @@ movies_out = df.select(
         col("imdb_id"),
         lit("/")
     ).alias("IMDBLink"),
-
-    # Filmweb link (cannot derive here)
-    lit(None).cast(StringType()).alias("FilmwebLink"),
 
     # Release year
     year(col("release_date")).alias("ReleaseYear"),
