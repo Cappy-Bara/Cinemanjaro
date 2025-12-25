@@ -5,8 +5,7 @@ services:
       dockerfile: ./Cinemanjaro.Bootstrapper/Dockerfile
     container_name: cinemanjaro_api
     ports: 
-      - "49154:80"
-      - "49153:443"
+      - "3000:80"
     environment:
      ASPNETCORE_ENVIRONMENT: "Development"
      ASPNETCORE_URLS: "http://+:80"
@@ -23,7 +22,7 @@ services:
     build: 
       context: ./src/APP/cinemanjaro-app
       args:
-        API_URL: "http://localhost:49154/api"
+        API_URL: "http://localhost:3000/api"
     container_name: cinemanjaro_app
     ports:
      - "8080:80"
