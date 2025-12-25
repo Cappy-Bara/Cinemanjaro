@@ -43,9 +43,18 @@ def parse_crew(crew_str):
     except:
         return []
 
-spark = SparkSession.builder \
-    .appName("MoviesTransform") \
+spark = (
+    SparkSession.builder
+    .appName("SeedMovies")
+    .config(
+        "spark.jars.packages",
+        "org.mongodb.spark:mongo-spark-connector_2.12:10.4.0"
+    )
+    .config("spark.mongodb.write.connection.uri", "mongodb://cinemanjaro:passwd23467@localhost:2717")
+    .config("spark.mongodb.write.database", "cinemanjaro_movies")
+    .config("spark.mongodb.write.collection", "movies")
     .getOrCreate()
+)
 
 df = spark.read \
     .option("header", True) \
@@ -155,10 +164,7 @@ movies_final_df = movies_out.join(
     how="left"
 ).drop("id")
 
-movies_final_df.coalesce(1).write.mode("overwrite").json("data/output/movies_final.json")
-
-# movies_final_df.write \
-#     .format("mongo") \
-#     .mode("append") \
-#     .option("uri", "mongodb://127.0.0.1/yourDB.movies") \
-#     .save()
+movies_final_df.write \
+    .format("mongodb") \
+    .mode("append") \
+    .save()
