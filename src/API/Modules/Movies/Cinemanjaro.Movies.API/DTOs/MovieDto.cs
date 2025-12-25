@@ -22,7 +22,6 @@ namespace Cinemanjaro.Movies.API.DTOs
         public double Rate { get; set; }
         public int ReleaseYear { get; set; }
         public string IMDBLink { get; set; }
-        public string FilmwebLink { get; set; }
         public string PhotoURL { get; set; }
 
 
@@ -43,7 +42,6 @@ namespace Cinemanjaro.Movies.API.DTOs
             Rate = movie.Rate;
             ReleaseYear = movie.ReleaseYear;
             IMDBLink = movie.IMDBLink;
-            FilmwebLink = movie.FilmwebLink;
             PhotoURL = movie.PhotoURL;
         }
     }

@@ -43,7 +43,6 @@ namespace Cinemanjaro.Movies.Core.EventHandlers
                 LengthMins = 155,
                 Rate = 8.81,
                 IMDBLink = "https://www.imdb.com/title/tt1160419/",
-                FilmwebLink = "https://www.filmweb.pl/film/Diuna-2021-469476",
                 ReleaseYear = 2021,
                 PhotoURL = "https://fwcdn.pl/fph/94/76/469476/924841_1.3.jpg",
             };
@@ -60,7 +59,6 @@ namespace Cinemanjaro.Movies.Core.EventHandlers
                 LengthMins = 179,
                 Rate = 7.66,
                 IMDBLink = "https://www.imdb.com/title/tt14039582/",
-                FilmwebLink = "https://www.filmweb.pl/film/Drive+My+Car-2021-875490",
                 ReleaseYear = 2021,
                 PhotoURL = "https://fwcdn.pl/fph/54/90/875490/1059281_1.3.jpg",
             };
@@ -77,7 +75,6 @@ namespace Cinemanjaro.Movies.Core.EventHandlers
                 LengthMins = 142,
                 Rate = 8.8,
                 IMDBLink = "https://www.imdb.com/title/tt0109830/?ref_=fn_al_tt_1",
-                FilmwebLink = "https://www.filmweb.pl/film/Forrest+Gump-1994-998",
                 ReleaseYear = 1994,
                 PhotoURL = "https://fwcdn.pl/fpo/09/98/998/7314731.6.jpg",
             };
@@ -94,7 +91,6 @@ namespace Cinemanjaro.Movies.Core.EventHandlers
                 LengthMins = 148,
                 Rate = 8.8,
                 IMDBLink = "https://www.imdb.com/title/tt1375666/?ref_=tt_sims_tt_i_2",
-                FilmwebLink = "https://www.filmweb.pl/film/Incepcja-2010-500891",
                 ReleaseYear = 2010,
                 PhotoURL = "https://fwcdn.pl/fph/08/91/500891/225032.3.jpg",
             };
@@ -111,7 +107,6 @@ namespace Cinemanjaro.Movies.Core.EventHandlers
                 LengthMins = 138,
                 Rate = 7.2,
                 IMDBLink = "https://www.imdb.com/title/tt11286314/?ref_=hm_tpks_tt_t_2_pd_tp1_cp",
-                FilmwebLink = "https://www.filmweb.pl/film/Nie+patrz+w+g%C3%B3r%C4%99-2021-848823",
                 ReleaseYear = 2021,
                 PhotoURL = "https://fwcdn.pl/fph/88/23/848823/1025183_1.3.jpg",
             };

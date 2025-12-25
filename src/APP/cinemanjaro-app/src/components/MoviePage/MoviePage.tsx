@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Image, Header, Grid, Label, Divider, Statistic, Button, Container } from "semantic-ui-react";
 import agent from "../../app/api/agent";
 import { Movie } from "../../app/models/Movie";
@@ -47,12 +47,6 @@ const MoviePage = () => {
                                 href={movie?.imdbLink}
                                 target="_blank"
                             />
-                            <Button
-                                color="yellow"
-                                content='Filmweb'
-                                as='a'
-                                href={movie?.filmwebLink}
-                                target="_blank" />
                         </Container>
 
                 </Grid.Column>
