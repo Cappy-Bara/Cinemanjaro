@@ -2,9 +2,29 @@
 #EXTRACT IN seeders/data/*
 
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import udf, col, year, concat, lit, expr
+from pyspark.sql.functions import udf, col, year, concat, lit, expr, array_except, transform, when, lit, array
 from pyspark.sql.types import ArrayType, StructType, StructField, StringType, IntegerType
 import ast
+
+UNWANTED_GENRES = [
+"Aniplex",
+"BROSTA TV",
+"Carousel Productions",
+"GoHands",
+"Mardock Scramble Production Committee",
+"Odyssey Media",
+"Pulser Productions",
+"Rogue State",
+"Sentai Filmworks",
+"TV Movie",
+"Telescene Film Group Productions",
+"The Cartel",
+"Vision View Entertainment"
+]
+
+GENRE_REMAP = {
+    "Science Fiction": "SciFi",
+}
 
 def parse_genres(genres_str):
     if not genres_str:
@@ -42,6 +62,18 @@ def parse_crew(crew_str):
         ]
     except:
         return []
+
+def clean_and_remap_genres(col_expr):
+    # Remove unwanted genres
+    cleaned = array_except(col_expr, array(*[lit(g) for g in UNWANTED_GENRES]))
+
+    # Remap genres
+    remapped = cleaned
+    for k, v in GENRE_REMAP.items():
+        remapped = transform(remapped, lambda g: when(g == k, v).otherwise(g))
+    
+    return remapped
+
 
 spark = (
     SparkSession.builder
@@ -117,6 +149,7 @@ credits_enriched_df = actors_df \
 
 parse_genres_udf = udf(parse_genres, ArrayType(StringType()))
 
+
 movies_out = df.select(
 
     col("id"),  # ← KEEPED FOR JOINING
@@ -128,7 +161,7 @@ movies_out = df.select(
     col("overview").alias("Description"),
 
     # Genres
-    parse_genres_udf(col("genres")).alias("Genres"),
+    clean_and_remap_genres(parse_genres_udf(col("genres"))).alias("Genres"),
 
     # Length
     col("runtime").cast("float").cast("int").alias("LengthMins"),

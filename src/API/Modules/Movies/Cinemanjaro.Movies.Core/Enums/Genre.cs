@@ -1,24 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Cinemanjaro.Movies.Core.Enums;
 
-namespace Cinemanjaro.Movies.Core.Enums
+public enum Genre
 {
-    public enum Genre
-    {
-        Comedy,
-        Drama,
-        Action,
-        SciFi,
-        Fantasy,
-        Thriller,
-        Horror,
-        Western,
-        Romance,
-        Animation,
-        Documental,
-        History
-    }
+    Action,
+    Adventure,
+    Animation,
+    Comedy,
+    Crime,
+    Documentary,
+    Drama,
+    Family,
+    Fantasy,
+    Foreign,
+    History,
+    Horror,
+    Music,
+    Mystery,
+    Romance,
+    SciFi,
+    Thriller,
+    War,
+    Western
 }
