@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './styles.css'
 import ShowListDashboard from '../../components/BookSeats/ShowList/ShowListDashboard';
 import NavBar from './NavBar';
 import BookSeatsDashboard from '../../components/BookSeats/BookSeatsScreen/BookSeatsDashboard';
 import { Container } from 'semantic-ui-react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import ThankYouPage from '../../components/BookSeats/ThankYouPage/ThankYouPage';
 import AboutUs from '../../components/AboutUs/AboutUs';
 import MoviePage from '../../components/MoviePage/MoviePage';
@@ -14,6 +14,7 @@ import LoginScreen from '../../components/LoginScreen/LoginScreen';
 import RegisterScreen from '../../components/RegisterScreen/RegisterScreen';
 import ThankYouPageRegister from '../../components/RegisterScreen/ThankYouPageRegister';
 import UserTicketsScreen from '../../components/UserTickets/UserTicketsScreen';
+import AllMovies from '../../components/AllMovies/AllMovies';
 
 function App() {
   const [loggedUser, setLoggedUser] = useState('');
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route path={'/'} element={<HomePage />} />
           <Route path={'/aboutus'} element={<AboutUs />} />
+          <Route path={'/movies-all'} element={<AllMovies />} />
           <Route path={'/movies/:id'} element={<MoviePage />} />
           <Route path={'/shows'} element={<ShowListDashboard />} />
           <Route path={'/shows/:id'} element={<BookSeatsDashboard userEmail={loggedUser}/>} />

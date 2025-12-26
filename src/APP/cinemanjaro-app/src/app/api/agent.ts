@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import { LoginData, RegisterData, Token } from "../models/Account";
-import { Movie, MoviesResponse } from "../models/Movie";
+import { AllMoviesResponse, Movie, MoviesResponse } from "../models/Movie";
 import { UserTickets } from "../models/Ticket";
 import { SeatsToBook, ShowDetails, ShowsResponse } from "../models/Show";
 
@@ -34,7 +34,8 @@ const Shows = {
 }
 
 const Movies = {
-    list: () => requests.get<MoviesResponse>(`Movies/on-screen`),
+    all: (page : number, pageSize : number) => requests.get<AllMoviesResponse>(`Movies?page=${page}&pageSize=${pageSize}`),
+    onScreen: () => requests.get<MoviesResponse>(`Movies/on-screen`),
     details: (id: string) => requests.get<Movie>(`Movies/${id}`)
 }
 

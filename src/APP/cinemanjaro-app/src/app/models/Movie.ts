@@ -24,3 +24,13 @@ export interface MovieListElementData{
     title:string
 }
 
+export interface AllMoviesResponse{
+    movies:AllMoviesListElementData[]
+    amount:number
+}
+
+export interface AllMoviesListElementData{
+    id:string,
+    title:string,
+    photoURL:string
+}

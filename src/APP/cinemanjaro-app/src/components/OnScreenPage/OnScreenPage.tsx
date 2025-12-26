@@ -4,15 +4,12 @@ import agent from "../../app/api/agent";
 import { MovieListElementData } from "../../app/models/Movie";
 import MovieList from "./MovieList";
 
-
-
-
 const OnScreenPage = () => {
 
     const [movies,setMovies] = useState<MovieListElementData[]>();
 
     const fetch = () => {
-        agent.Movies.list().then(data =>
+        agent.Movies.onScreen().then(data =>
             {
                 setMovies(data.movies);
             }

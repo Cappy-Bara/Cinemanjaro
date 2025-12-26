@@ -93,7 +93,7 @@ df = spark.read \
     .option("multiLine", True) \
     .option("escape", "\"") \
     .option("quote", "\"") \
-    .csv("data/short_movies_metadata.csv")
+    .csv("data/movies_metadata.csv")
 
 credits_df = spark.read \
     .option("header", True) \
@@ -101,7 +101,7 @@ credits_df = spark.read \
     .option("quote", "\"") \
     .option("escape", "\"") \
     .option("mode", "PERMISSIVE") \
-    .csv("data/short_credits.csv")
+    .csv("data/credits.csv")
 
 cast_schema = ArrayType(
     StructType([

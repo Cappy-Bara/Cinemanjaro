@@ -26,6 +26,7 @@ const NavBar = ({ loggedUser, setLoggedUser }: props) => {
                 </Menu.Item>
                 <Menu.Item name='On screen' as={NavLink} to="/movies" />
                 <Menu.Item name='Book a seat' as={NavLink} to="/shows" />
+                <Menu.Item name='All Movies' as={NavLink} to="/movies-all" />
                 <Menu.Item name='About us' as={NavLink} to="/aboutus" />
                 <Menu.Item position='right'>
                     <Dropdown pointing='top left' text={loggedUser ? loggedUser : "Account"}>
