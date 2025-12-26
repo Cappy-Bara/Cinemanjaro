@@ -18,7 +18,7 @@ namespace Cinemanjaro.Movies.API.Controllers
 
         [HttpGet("{id}")]
         [SwaggerOperation("Returns information about selected movie")]
-        public async Task<ActionResult<MovieDto>> Get([FromRoute] string id)
+        public async Task<ActionResult<MovieDto>> GetSingle([FromRoute] string id)
         {
             var objectId = ObjectId.Parse(id);
 
@@ -27,6 +27,24 @@ namespace Cinemanjaro.Movies.API.Controllers
                 return NoContent();
 
             var output = new MovieDto(movie);
+            return Ok(output);
+        }
+
+        [HttpGet("")]
+        [SwaggerOperation("Get list of movies")]
+        public async Task<ActionResult<IEnumerable<MovieDto>>> Get([FromQuery]int page = 1, [FromQuery] int pageSize = 12)
+        {
+            var movies = await _moviesService.GetMovies(page,pageSize);
+            if (movies.data == null || !movies.data.Any())
+                return NoContent();
+
+            var data = movies.data.Select(x => new MovieShortDataDto(x));
+            var output = new MoviesListResult
+            {
+                Movies = data.ToList(),
+                Amount = movies.amount
+            };
+
             return Ok(output);
         }
     }

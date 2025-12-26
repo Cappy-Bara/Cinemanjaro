@@ -1,15 +1,11 @@
 ﻿using Cinemanjaro.Movies.Core.Entities;
 using MongoDB.Bson;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Cinemanjaro.Movies.Core.Services
+namespace Cinemanjaro.Movies.Core.Services;
+
+public interface IMovieService
 {
-    public interface IMovieService
-    {
-        public Task<Movie> GetMovieDetails(ObjectId id);
-    }
+    public Task<Movie> GetMovieDetails(ObjectId id);
+
+    public Task<(List<MovieShortData> data, int amount)> GetMovies(int page, int pageSize);
 }
